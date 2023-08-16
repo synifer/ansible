@@ -1,0 +1,16 @@
+---
+- 
+  name: Backup Configs
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+    
+    - name: Generate Backup Configs
+      cisco.ios.ios_command:
+        commands:
+          - configure replace flash:ansible-base force
+          - show configuration history
+      register: output
+
+    - debug: var=output.stdout_lines

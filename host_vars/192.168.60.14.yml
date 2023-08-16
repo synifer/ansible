@@ -1,0 +1,10 @@
+
+---
+
+hostname: r4
+loopback: 100
+loopback_ip: 10.10.10.4
+ospf_ints:
+  - 10.10.10.4
+  - 10.10.1.4
+  - 10.255.1.4

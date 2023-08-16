@@ -1,0 +1,28 @@
+---
+
+- name: Run show commands on routers
+  hosts: routers
+  gather_facts: false
+  strategy: free # як тільки на девайсі виконано перше завдання, переходити виконувати наступну
+
+  tasks:
+
+    - name: run sh ip int br
+      ios_command:
+        commands: sh ip int br
+      ignore_errors: true
+
+    - name: run sh ip arp
+      ios_command:
+        commands: sh ip arp
+
+
+- name: Run command on R1
+  hosts: 192.168.60.11
+  gather_facts: false
+
+  tasks:
+
+    - name: run sh clock
+      ios_command:
+        commands: sh clock

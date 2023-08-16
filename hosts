@@ -1,0 +1,44 @@
+all:
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_user: admin
+    ansible_password: cisco
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_become_password: cisco
+    ansible_network_os: cisco.ios.ios
+
+[routers]
+192.168.60.11
+192.168.60.12
+192.168.60.13
+192.168.60.14
+
+# [branch_routers]
+# 192.168.60.13
+# 192.168.60.14
+# 
+# [hq_routers]
+# 192.168.60.11
+# 192.168.60.12
+# 
+# [devices:children]
+# routers
+# branch_routers
+# hq_routers
+
+# [routers:vars]
+# ansible_connection=network_cli
+# ansible_network_os=ios
+# ansible_user=admin
+# ansible_password=cisco
+# ansible_become=yes
+# ansible_become_method=enable
+# ansible_become_pass=cisco
+
+# r1=192.168.60.11
+# r2=192.168.60.12
+# r3=192.168.60.13
+# r4=192.168.60.14
+
+

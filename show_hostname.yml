@@ -1,0 +1,13 @@
+
+---
+
+- name: Run show commands on routers
+  hosts: routers
+  gather_facts: false
+
+  tasks:
+
+    - name: show hostname
+      ios_command:
+        commands: "{{run_command}}"
+

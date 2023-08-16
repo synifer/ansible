@@ -1,0 +1,10 @@
+
+---
+
+hostname: r2
+loopback: 100
+loopback_ip: 10.10.10.2
+ospf_ints:
+  - 10.10.10.2
+  - 10.10.1.2
+  - 10.255.1.2

@@ -1,0 +1,14 @@
+---
+- 
+  name: Backup Configs
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    
+    - name: Generate Backup Configs
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          dir_path: /etc/ansible/backup-files/router-backups/
+          filename: "{{inventory_hostname}}-backup.config"

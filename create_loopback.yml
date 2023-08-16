@@ -1,0 +1,25 @@
+---
+- 
+  name: Sending Basic IOS Commands
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+
+    - name: Configuring Loopback99 On Selected Devices
+      cisco.ios.ios_command:
+        commands: 
+          - configure terminal
+          - interface loopback99
+          - description Created-By-Ansible
+          - end
+
+
+    - name: Verifying Loopback99
+      cisco.ios.ios_command:
+        commands: show run interface loopback99
+      register: loopback99
+
+    - debug: var=loopback99.stdout_lines
+
+

@@ -1,0 +1,19 @@
+---
+- 
+  name: Sending IOS Commands
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+
+  - name: Sending a few simple Cisco IOS commands
+    cisco.ios.ios_command:
+      commands: 
+        # - show version
+        - show ip int brief
+          # - show run | section ip route
+    register: output
+
+  - debug: var=output.stdout_lines
+
+ 

@@ -1,0 +1,44 @@
+---
+- 
+  name: Manager Net_Admin Accounts
+  hosts: all
+  gather_facts: no
+ 
+  tasks: 
+           
+   - name: Create new NetAdmin user-Bob
+     cisco.ios.ios_user: 
+       name: Bob
+       configured_password: INE1234
+       password_type: password
+       privilege: 15
+       state: present
+
+   - name: Delete all but Admin users
+     cisco.ios.ios_user: 
+       name: cisco
+       configured_password: cisco
+       password_type: password
+       privilege: 15
+       purge: yes
+ 
+
+#   - name: Create a new user called Sally
+#     cisco.ios.ios_user: 
+#       name: Sally
+#       configured_password: INE4567
+#       password_type: secret
+#       state: present
+#
+#   - name: Create a new user called Jose
+#     cisco.ios.ios_user: 
+#       name: Jose
+#       configured_password: INE9999
+#       password_type: secret
+#       state: present
+
+      
+#   - name: Delete user Jose
+#     cisco.ios.ios_user: 
+#       name: Jose
+#       state: absent

@@ -1,0 +1,1069 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fnil\fcharset0 LucidaGrande-Bold;\f4\fnil\fcharset0 HelveticaNeue;\f5\fnil\fcharset0 HelveticaNeue-Bold;
+\f6\fnil\fcharset0 Charter-Roman;\f7\fnil\fcharset0 Charter-Bold;\f8\fswiss\fcharset0 ArialMT;
+\f9\fnil\fcharset0 Menlo-Bold;\f10\fnil\fcharset0 Menlo-Regular;\f11\froman\fcharset0 Times-Bold;
+\f12\froman\fcharset0 Times-Roman;\f13\fswiss\fcharset0 Helvetica-BoldOblique;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red251\green251\blue251;\red255\green255\blue255;
+\red0\green0\blue255;\red0\green0\blue0;\red102\green57\blue2;\red16\green60\blue192;\red251\green2\blue255;
+\red246\green246\blue246;\red251\green2\blue7;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c98824\c98824\c98824;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c1680\c19835\c100000;\csgray\c0\c0;\cssrgb\c47914\c28845\c0;\cssrgb\c6667\c33333\c80000;\cssrgb\c100000\c25279\c100000;
+\cssrgb\c97255\c97255\c97255;\cssrgb\c100000\c14913\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid1\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid101\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid301\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\margl1440\margr1440\vieww19100\viewh13840\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Consistent Configurations With Ansible \
+\
+\cf2 What is Ansible?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \'97\'97Ansible can:\
+\'97\'97\'97
+\f1\b Obtain device data
+\f0\b0  which allows:\
+\'97\'97\'97\'97building quick databases of compiled configuration files across many devices\
+\'97\'97\'97\'97triggering of other tasks such as sending configuration commands\
+\
+\'97\'97\'97
+\f1\b Send configuration commands
+\f0\b0  that:\
+\'97\'97\'97\'97Are supplemental/new\
+\'97\'97\'97\'97Override/replace existing configuration\
+\'97\'97\'97\'97Delete existing configuration
+\fs48 \
+\
+If Ansible is built on Python, why not just use Python?\
+
+\fs36 \'97There are a million ways to accomplish a task in Python\
+\'97Every Python developer has their own style and way of coding\
+\'97If a python script is given to another python developer, Developer-2 may not easily/quickly be able to determine how the script works, what it accomplishes, or ways to modify it if required.\
+\'97Ansible (a \'93network automation framework\'94) is much more consistent.\
+\'97An Ansible playbook can be given to any Ansible developer and be easily understand and modified.
+\fs48 \
+\
+Minimum network device prerequisites
+\fs36 \
+\'97\'97At least one network-connected interface with a functional IP address\
+\'97\'97Some kind of routing (i.e. default route) so that device can forward packets back to Ansible Control  \
+       Node\
+\'97\'97All components configured for answering SSH session requests\
+\'97\'97\'97\'97Username and password for SSH\
+\'97\'97\'97\'97SSH Keypair\
+\'97\'97\'97\'97IP domain name\
+\'97\'97\'97\'97SSH activated on relevant lines or interfaces\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs48 \cf2 Minimum things needed to work with Ansible\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \'97\'97Control Node:\
+\'97\'97\'97 running Linux (I.e. RedHat, Ubuntu, etc) \
+\'97\'97\'97 capable of initiating SSH sessions\
+\'97\'97\'97 With IP network access\
+\'97\'97A text editor for creating-and-editing Ansible files (YAML, .config, Hosts, etc)\
+\'97\'97A list of IP addresses or DNS names of target devices
+\fs48 \
+\
+Ansible Terminology \
+
+\fs36 https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html\
+\
+**********************\
+1. Hosts and Groups\
+\'97Host is an individual machine (like a router) that can be targeted by Ansible\
+\'97If multiple hosts will be treated the same way then you can put then into named \'93groups\'94 and reference that group in your Playbook\
+\
+\
+***********************\
+\
+2. Connections\
+\'97Within a Playbook or ad-hoc command, one of the first things you must define is a \'93connection\'94. Generally for network devices this would be \'93
+\f1\b network_cli
+\f0\b0 \'94 indicating that SSH should be used and open a shell session. \
+\'97 Ansible was originally meant to automate servers and could be installed locally on the server it was meant to automate.  So an alternative connection method you could see in examples would be \'93local\'94 (connect to the localhost) but this won\'92t be used by a Network Engineer.\
+\'97There are many available connection methods for use in ansible\
+\'97\'97To view the entire list of methods available: 
+\f1\b ansible-doc -t connection -l 
+\f0\b0  #as in \'93Larry\'94\
+\'97\'97To view specific details of a connection method: 
+\f1\b ansible-doc -t connection <connection-name>\
+
+\f0\b0 \
+*********************\
+\
+3. Tasks\
+ \'97A \'93task\'94 is single action (similar to a single IOS command) that results in \'93ok\'94, \'93change\'94 or \'93failed\'94\
+ \'97A task can be implemented as a one-time action using the Ansible CLI (called, \'93ad hoc\'94), or it can be part of a larger automated package within a Playbook.\
+\'97\'97\'97When included in a Playbook one-or-more tasks are grouped under a \'93play\'94\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 {\listtext	
+\f2 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+By default, Ansible executes each task in order, one at a time, against all machines matched by the host pattern. \
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	
+\f2 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+Each task executes a module with specific arguments. \
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	
+\f2 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+When a task has executed on all target machines, Ansible moves on to the next task. \
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	
+\f2 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+Within each play, Ansible applies the same task directives to all hosts. \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f1\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	
+\f3 \uc0\u9642 
+\f1 	}\expnd0\expndtw0\kerning0
+If a task fails on a host, Ansible takes that host out of the rotation for the rest of the playbook.
+\f0\b0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \
+***********************\
+\
+4. Plays\
+\'97A \'93Play\'94 is a collection of one-or-more \'93tasks\'94 run against a common group of hosts\
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html\
+\
+***********************\
+\
+5. Playbooks
+\fs48 \
+
+\fs36 \'97A playbook is a collection of plays-and-tasks to be performed in a certain order\
+\'97Within a playbook, the minimum things that need to be defined are:\
+\'97\'97The hosts (or group) that will be targeted\
+\'97\'97The connection method\
+\'97\'97The name(s) of the collections and modules that will be used\
+\'97\'97An named, ordered listing of tasks (called \'93plays\'94)\
+\'97 Playbooks are created using a syntax called YAML\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f4 \cf2 \cb3 {\listtext	
+\f2 \uc0\u9642 
+\f4 	}\expnd0\expndtw0\kerning0
+Most Ansible modules check whether the desired final state has already been achieved, and exit without performing any actions if that state has been achieved, so that repeating the task does not change the final state. \
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	
+\f2 \uc0\u9642 
+\f4 	}\expnd0\expndtw0\kerning0
+Modules that behave this way are often called \'91
+\f5\b idempotent
+\f4\b0 .\'92 \
+\pard\tx720\pardeftab720\partightenfactor0
+
+\f0 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 *********************\
+6. Roles\
+\'97One or more tasks or variables that can then be assigned to a group of hosts\
+\'97Defined as a YAML file within the appropriate roles directory\
+\'97
+\f6\fs42 \cb4 \expnd0\expndtw0\kerning0
+Ansible role is an independent component which 
+\f7\b \ul allows reuse of common configuration steps
+\f6\b0 \ulnone . \
+\'97Ansible role has to be used within playbook.
+\f0\fs36 \cb1 \kerning1\expnd0\expndtw0 \
+\'97According to the Ansible documentation, 
+\fs48 \'93
+\f4\fs32 \cf5 \cb3 \expnd0\expndtw0\kerning0
+A role enables the sharing and reuse of Ansible tasks. It contains Ansible playbook tasks, plus all the supporting files, variables, templates, and handlers needed to run the tasks. A role is a complete unit of automation that can be reused and shared\cf2 .\'94\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 \'97Roles are stored within the Ansible Galaxy (central repository)\
+\'97One can search for available roles using:\
+\'97\'97sudo ansible-galaxy search <keyword>\cb1 \kerning1\expnd0\expndtw0 \
+\'97One can view details of a role using: sudo ansible-galaxy info <role-name>\
+\'97Installing a role: sudo ansible-galaxy install <role>
+\f1\b \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 \
+*************************\
+\
+7. Module
+\fs48 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f8\fs36 \cf2 \cb4 \expnd0\expndtw0\kerning0
+\'97 Modules (also referred to as \'93task plugins\'94 or \'93library plugins\'94) are discrete units of code (written in Python but referenced via YAML notation) that can be used from the command line or in a playbook task. \
+\
+\'97 Modules are written to obfuscate the actual commands that are pushed to a device. For example the \'93
+\f4 ios_acl_interfaces\'94 module contains a variety of parameters (like \'93name\'94 and \'93direction\'94) and values that could be assigned to each parameter (like \'93No-Payroll\'94 and \'93in\'94). \
+\
+\'97By telling Ansible to use a particular module, and setting values to the parameters you need, you don\'92t need to actually know the CLI language pushed to the device.\
+\
+\'97 Sometimes modules don\'92t yet exist for your particular need (for example, there is no module within the cisco.ios collection for obfuscating QoS commands).\
+\'97\'97In this case, there is usually a module created with the word, \'93commands\'94 in it that allows you to push whatever commands you want to the device.\
+\'97\'97\'97i.e. 
+\f5\b ios_command
+\f4\b0  module within cisco.ios\
+\'97\'97These types of modules clearly require that you already know the cli-syntax for the cisco, juniper, vyos, etc OS that you\'92re working with.\
+\
+\'97 To view the modules that came with your ansible package:\
+\'97\'97\cf5 ansible-doc -l  \'97>\'94l as in Larry\'94\cf2 \
+\'97\'97\'97\cf5 ansible-doc -l | grep ^ios
+\f5\b\fs48 \cf2 \
+
+\f8\b0\fs32 \
+************************\
+\
+8. 
+\f0\fs36 Collections\
+\
+\'97A collection is a group of modules, all designed to simplify the automation of devices belonging to a specific vendor\
+\'97For the network engineer, some of the most common collections would be:\
+\'97\'97 cisco.ios\
+\'97\'97 arista.eos\
+\'97\'97 f5networks.f5_modules\
+\'97\'97 junipernetworks.junos\
+\'97\'97 vyos.vyos\
+\'97\'97 \'85and several others
+\fs48 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \'97Once you have identified the collection you need, you download it onto your system with the command, \'93\cf5 ansible-galaxy collection install <collection name>\cf2 \'94
+\fs48 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f8\fs36 \cf2 \cb4 \expnd0\expndtw0\kerning0
+\'97When using the standard command, "\cf5 ansible-galaxy collection install cisco.ios\cf2 " it's possible that you may not receive the latest version of this collection.\
+\'97In this instance, the version of the collection that was installed on my system was 1.1.0 and yet to obtain the "ios_ospf_interfaces" module I needed 1.2.0\
+\'97To verify the current version of the cisco.ios module the command is:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f9\b \cf5 \cb1 ansible-galaxy collection install -vv cisco.ios:==1.2.0
+\f10\b0 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f8 \cf2 \cb4 \'97If the output displays that you are running an earlier version of this collection, repeat the command above but add the argument, "\cf5 --force\cf2 " at the end to force it to update to version 1.2.0
+\fs30 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \'97To confirm the most recent version of the collection of interest:\
+\'97\'97Find the collection on galaxy.ansible.com\
+\'97\'97Look at the \'93install version\'94 dropdown menu.  It will display the latest-and-greatest version available.
+\fs48 \
+\
+
+\fs36 \'97It is CRITICAL that you are working with the most recent version of a Collection. Otherwise strange behavior might result such as:\
+\'97\'97Available modules for the collection (as shown in documentation) might not be downloaded onto your system\
+\'97\'97Definitions for parameters (such as dictionaries, lists, etc) can change.
+\fs48 \
+\
+****************\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \ul \ulc0 Ansible installation on Ubuntu
+\f0\b0\fs36 \cf2 \ulnone \
+1. Instructions can be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04\
+\
+2. To use Ansible with Cisco devices you\'92ll want to download the cisco.ios collection\
+\'97 \cf5 ansible-galaxy install collection cisco.ios\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 **********************************\
+\
+
+\f1\b\fs48 \cf2 Ansible installation on Windows OS
+\f0\b0\fs36 \cf2 \
+1. Ansible is not natively supported in Windows\
+2. Must either SSH into a Linux box under your control and install Ansible there or\'85\
+3. Download VirtualBox (or other VM software) and install Ubuntu as a VM\
+\
+4. Download VirtualBox\
+\
+****************************\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul Ansible installation on MacOS (not included in course)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs36 \cf2 \ulnone 1. Brew install ansible\
+\'97\'97requires pre-installation of Homebrew\
+\
+2. Other options using PIP: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#from-pip\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 \ulnone ***********************\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul \
+Understand the Ansible Galaxy\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs36 \cf2 \ulnone 1. What is the Ansible Galaxy?\
+\'97\'97\'93\cf2 \cb6 \expnd0\expndtw0\kerning0
+Ansible Galaxy is Ansible\'92s official hub for sharing Ansible content.\'94\
+\'97\'97Central storage repository of Collections suitable for different vendors\'85and modules within those collections\
+\'97\'97How to use it:\
+\'97\'97\'97\'97Start by going to https://galaxy.ansible.com\
+\'97\'97\'97\'97Click on \'93Search\'94 in left navigation bar\
+\'97\'97\'97\'97\'97Scroll through available content or search for what you want
+\fs28 \
+
+\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
+2. Downloading a Collection\
+\'97\'97You will need to download one-or-more collections to your Linux machine so that Ansible can make use of it.\
+\'97\'97Within your Linux CLI:\
+\'97\'97\'97\'97\cf5 ansible-galaxy collection install <name-of-collection>\cf2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs48 \cf2 ************************\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul Prepare infrastructure\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \ulnone \
+Cisco\'92s Devnet Sandbox labs can be used to practice Ansible, free of charge for anyone.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs28 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 1. Ubuntu preconfiguration\
+\'97\'97Most Devnet labs require that you first VPN into them. They recommend Cisco AnyConnect but that\'92s not required\
+\'97\'97Download OpenConnect VPN for Ubuntu\
+\'97\'97\'97\'97\cf7 https://developer.cisco.com/docs/sandbox/#!tips-tricks/linux-openconnect-vpn-client\cf2 \
+\'97\'97\'97\'97\cf5 \cb6 \expnd0\expndtw0\kerning0
+sudo apt-get install openconnect\cf2 \
+\cf2 \cb1 \kerning1\expnd0\expndtw0 \'97\'97\'97when you run OpenConnect you\'92ll need to disable DTLS or else you\'92ll get error messages:\
+\'97\'97\'97\'97\cf5 sudo openconnect \cb4 \expnd0\expndtw0\kerning0
+--no-dtls <network>\cf2 \
+\
+\
+\
+2. Start your DevNet Sandbox Lab\
+\'97\'97Lab used in my demonstrations is: \'93Cisco Modeling Labs Enterprise Sandbox\'94 which can be reserved for 5-day durations\
+\'97\'97Once Sandbox lab is started 
+\f1\b you\'92ll receive an email with your credentials
+\f0\b0  like:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Lab Network Address:\'a0{\field{\*\fldinst{HYPERLINK "http://devnetsandbox-usw1-reservation.cisco.com:20106/"}}{\fldrslt \ul \ulc8 devnetsandbox-usw1-reservation.cisco.com:20106}}\cb1 \
+\ls3\ilvl0\cb4 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Username:\'a0<your-username>\cb1 \
+\ls3\ilvl0\cb4 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Password:\'a0<your-password>
+\f11\b\fs28 \
+\pard\tx720\pardeftab720\partightenfactor0
+
+\f12\b0\fs20 \cf2 \cb1 \
+
+\fs36 \'97\'97\'97The \'93Lab Network Address\'94 shown above is what you\'92d type into your \'93sudo openconnect 
+\f8\fs32 \cb4 --no-dtls
+\f12\fs36 \cb1  <network>\'94 command.
+\fs20 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 \kerning1\expnd0\expndtw0 \
+3. If you\'92re not familiar with IOS-XR (which are most of the routers in this lab and they don\'92t have SSH enabled) you may want to add additional IOS-XE or IOSv nodes to your lab topology.
+\f1\b \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf9 \
+***********\
+***********\cf2 \
+Section below is ONLY relevant if connecting your Ubuntu desktop to your own lab infrastructure, you\'92ll need to do the following:\
+DHCP
+\f0\b0 \
+1. Either configure Ubuntu NIC with static IP or prepare a reachable DHCP Server\
+\'97\'97Ensure Ubuntu has received DHCP address\
+\'97\'97Ensure the learned Default-Gateway is also learned as the DNS Server.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 SSH
+\f0\b0 \
+1. Configure routers for SSH access\
+    
+\f1\b ip domain-name ine.com\
+    Username test privilege 15 password ine\
+    Crypto key generate rsa\
+    Ip ssh version 2\
+    Line vty 0 4\
+      Login local\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 2. Create SSH keys: (since Ansible uses SSH):https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804\
+\'97\'97\'97ssh-keygen\
+\
+3. Manually SSH to the router from Ubuntu so that keys will be mutually installed\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 DNS
+\f0\b0 \
+1. In the \'93real world\'94 it is most likely that hosts would be provided to Ansible as DNS names\
+2. A real (or corporate internal) DNS server would resolve these names to IP addresses\
+3. For a lab environment, a Cisco device must be configured as a local DNS server and this device learned via DHCP to the Ansible Control Node (Ubuntu)\
+\
+Router(config)#ip dns server\
+Router(config)#ip host r1.ine.com 1.1.1.1
+\f1\b\fs48 \cf2 \ul \
+\
+
+\fs36 \cf2 \ulnone Routing
+\fs48 \cf2 \ul \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs36 \cf2 \ulnone 1. For IP reachability (from Ubuntu to network devices) one must implement static routes in Ubuntu\
+\'97Depending on OS characteristics, this can be done via the GUI or CLI\
+\'97CLI:\
+\'97\'97a. Open Terminal\
+\'97\'97B. Sudo route add -net 30.30.30.0/24 gw 10.1.1.2
+\f1\b\fs48 \cf2 \ul \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf9 \ulnone \
+**********\
+**********\cf2 \ul \
+\
+Ansible Config File\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs36 \cf2 \ulnone 1. This file controls the default characteristics of how Ansible operates\
+2. If, after downloading Ansible you don\'92t have a default ansible.cfg file you\'92ll need to create one:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 	https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 2. Spend a few minutes reading through it.\
+3. To change default values, uncomment them and make changes\
+4. Things to notice:\
+\'97\'97cd /etc/ansible/\
+\'97\'97cat -n ansible.cfg\
+\'97\'97Line-14: Ansible looks for a file called, \'93hosts\'94 to determine which devices to target\
+\'97\'97Line-26: Default value for SSH.  Change this if you plan on using a non-default SSH port.\
+\'97\'97Line-36: Most likely you will not need/want to \'93gather facts\'94 on your network devices.  Set this to \'93explicit\'94.\
+\'97\'97Line-71: Uncomment this and change to \'93False\'94 otherwise SSH sessions might fail.\
+\'97\'97Lines 175 and 180: Uncomment these and set to \'93False\'94 so that you don\'92t get a bunch of useless warnings when running playbooks.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul \
+\
+The Ansible Hosts file
+\f0\b0\fs36 \cf2 \ulnone \
+1. General Overview\
+\'97Purpose of \'93hosts\'94 file for Ansible usage\
+\'97Where installed\
+\'97Formats when creating a new \'93hosts\'94 file (either is acceptable)\
+\'97\'97INI format\
+\'97\'97YAML format\
+\
+1. Change to Ansible directory\
+\'97 cd /etc/ansible\
+\
+2. Open \'93hosts\'94 file (sudo vim hosts)\
+\'97Add hosts either by IP address or resolvable DNS name\
+\'97\'97\'97If DNS name, then also change the main \'93hosts\'94 file within Ubuntu /etc directory if you will NOT be using a DNS server.\
+\'97\'97\'97If the default-gateway (i.e. Cisco router) has also been configured as a DNS Server then no need to modify main Ubuntu \'93hosts\'94 file.\
+\
+3. Add hosts by groups\
+\'97\'97[My_Group_Name]\
+\'97\'97\'97\'97hosts can be listed by IP address or resolvable DNS names\
+\
+\
+4. Add variables that apply to your hosts\
+\'97Variable inform ansible of several things such as:\
+\'97\'97mapping device names to IP addresses (if DNS is not used)\
+\'97\'97providing SSH username and passwords\
+\'97\'97Informing ansible of what connection type to use (SSH, HTTP, etc)\
+\
+\'97Variables can be added in several places\
+\'97\'97Within a playbook\
+\'97\'97Within the \'93hosts\'94 file\
+\'97\'97Within a subdirectory called, \'93host_vars\'94\
+\
+\'97There are some variables that are recognized in Playbooks, and others that are only valid in the \'93hosts\'94 file.\
+\'97Variables can be added in a couple of different locations within the \'93hosts\'94 file:\
+\'97\'97[all:vars] will apply variable to every single host in your file\
+\'97\'97[my_group:vars] will apply variables to all hosts belonging to my_group\
+\
+\'97Variables for individual hosts can be isolated into their own separate file:\
+\'97\'97within the same directory as the \'93hosts\'94 file create a subdirectory called, \'93host_vars\'94\
+\'97\'97\'97naming is important.  CANNOT BE \'93hosts_vars\'94.\
+\'97\'97within that subdirectory use text editor to create file using the same name as what is in your \'93hosts\'94 file.\
+\'97\'97\'97If \'93hosts\'94 file contains a host called R1 you would use VIM to create a new file called, host_vars/R1\
+\'97\'97within the new file, place your variables.  However in THIS context the format is different:\
+\'97\'97\'97Start new file with \'97\'97\'97 (just like the beginning of a YAML file)\
+\'97\'97\'97variable name
+\f1\b : 
+\f0\b0 value  (unlike the \'93hosts\'94 file in which you type variable_name
+\f1\b =
+\f0\b0 value)\
+\'97\'97\'97No indentation is necessary\
+\
+\'97The following variables are only valid for your \'93hosts\'94 file or within the \'93host_vars\'94 directory:\
+\'97\'97
+\f1\b \cf2 \ul Mandatory variables for network engineers
+\f0\b0 \cf2 \ulnone \
+\'97\'97\'97ansible_connection=ansible.netcommon.network_cli\
+\'97\'97\'97\'97\'97\'97Should be placed under [all:vars]\
+\'97\'97\'97\'97\'97\'97Other possible values for this variable include:\
+\'97\'97\'97\'97\'97\'97\'97\'97ansible.netcommon.httpapi\
+\'97\'97\'97\'97\'97\'97\'97\'97ansible.netcommon.netconf\
+\'97\'97\'97\'97\'97\'97More info: https://galaxy.ansible.com/ansible/netcommon\
+\
+\'97\'97\'97ansible_become=yes\
+\'97\'97\'97\'97\'97\'97Can be placed under [all:vars] or under hosts grouped under a common name like [cisco_hosts:vars]\
+\'97\'97\'97\'97\'97\'97Allows ansible to login to a device using a name other than \'93root\'94 and to \'93become\'94 another user\
+\
+\'97\'97\'97ansible_become_method=enable\
+\'97\'97\'97\'97\'97\'97Should be placed immediately beneath ansible_become=yes\
+\'97\'97\'97\'97\'97\'97
+\f4\fs32 \cf2 \cb4 \expnd0\expndtw0\kerning0
+Allows to set privilege escalation method\
+\'97\'97\'97\'97\'97\'97\'97Insert graphic \'93ansible-become-methods\'94 into slide here\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \'97\'97\'97ansible_become_pass=mypassword\
+\'97\'97\'97\'97\'97\'97Should be placed immediately beneath ansible_become=yes\
+\'97\'97\'97\'97\'97\'97
+\f4\fs32 \cf2 \cb4 \expnd0\expndtw0\kerning0
+If the SSH username and password (set in commands below) 
+\f5\b does not automatically grant privilege-15 access
+\f4\b0  and the \'93enable\'94 command must be issued, this variable allows you send the correct enable password.\
+\
+\
+\
+
+\f0\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \'97\'97\'97ansible_user=<username>\
+\'97\'97\'97\'97\'97\'97If every single device will have the same SSH username could be placed in [all:vars] otherwise place under a specific group of devices such as [cisco_devices:vars]
+\f4\fs32 \cf2 \cb4 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\'97\'97\'97ansible_password=<password>\
+\'97\'97\'97\'97\'97\'97If every single device will have the same SSH password could be placed in [all:vars] otherwise place under a specific group of devices such as [cisco_devices:vars]\
+\
+\
+\'97\'97\'97ansible_network_os=cisco.ios.ios\
+\'97\'97\'97\'97\'97\'97\cf2 \cb3 \expnd0\expndtw0\kerning0
+Informs Ansible which Network platform this hosts corresponds to. This is required when using the\'a0\cb4 ansible.netcommon.*\cb3 \'a0connection options.\
+\'97\'97\'97\'97\'97\'97\'93cisco.ios.ios\'94 is one of many Ansible \'93Collections\'94.  Select a collection appropriate for your group of devices.
+\f4\fs32 \
+
+\f0\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \'97\'97\'97\'97\'97\'97If every single device will be using the same network OS, this variable could be placed in [all:vars] otherwise place under a specific group of devices such as [cisco_devices:vars]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f4\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 ****************************\
+****************************\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 SAMPLE HOSTS FILE (\cf9 INI format\cf2 )
+\f0\b0 \
+##Ansible does not like hyphens in anything below.  
+\f1\b You must you underscores
+\f0\b0 \
+\
+[
+\f1\b all:vars]\
+ansible_connection=ansible.netcommon.network_cli\
+ansible_user=test\
+ansible_password=ine\
+\
+[cisco_routers]\
+R2.ine.com\
+R3.ine.com\
+\
+[cisco_routers:vars]\
+ansible_become=yes	\
+ansible_become_method=enable\
+ansible_network_os=cisco.ios.ios\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 SAMPLE HOSTS FILE (\cf9 YAML format\cf2 )
+\f0\b0 \
+
+\f1\b \
+cisco_routers: \
+  hosts:\
+    R2.ine.com\
+    R3.ine.com\
+  vars:\
+    ansible_connection: ansible.netcommon.network_cli\
+    ansible_user: test\
+    ansible_password: ine\
+    ansible_become: True	\
+    ansible_become_method: enable\
+    ansible_network_os: cisco.ios.ios\
+\
+****NOTE: When the \'93hosts\'94 file is created in YAML format it would appear that any host variables must be defined within this same file.  By contrast, when the \'93hosts\'94 file is created in .ini format, individual host variables can be drawn/pulled from another file in the \'93host_vars\'94 folder.\
+\
+**********************************************
+\f0\b0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 4. Basic YAML Rules\
+
+\f0\b0\fs36 \cf2 \
+\'97YAML Ain\'92t Markup Language\
+\'97A language for providing structure to data similar in purpose to XML and JSON\
+\'97\'97Easy for humans to read and understand\
+\'97\'97\'93Somewhat\'94 easy to construct\'85but there are rules to follow\
+\
+\'97A. YAML hates dashes.  Always use underscores instead!\
+\
+\'97B. 
+\f1\b Playbooks typically start with three dashes \'93 - - -\'93, but this is not absolutely required\
+
+\f0\b0 \
+\'97C. Descriptive comments can be placed anywhere in a playbook by using an octothorpe\
+# This is a comment\
+\
+\'97D. Typical Playbooks (used for network automation) are comprised of plays (also called \'93blocks\'94)\
+\'97\'97i. A Play consists of one or more tasks (actions to execute against one or more hosts)\
+\'97\'97i. Plays begin with a dash followed by a space\
+\'97\'97iii. Each play is a dictionary with a set of mandatory properties called, \
+\'97\'97\'97\'97name (descriptive name of the play)\
+\'97\'97\'97\'97hosts\
+\'97\'97\'97\'97tasks\
+\'97\'97ii. Some special mappings (like task: ) demand a new sub-block be created\
+\
+\'97#This example is INCORRECT to denote a new block/play because it is missing a single space.\
+\'97 #Correctly denotes a new block/play\
+\
+\'97E. Primary elements of YAML\
+Key-Value pairs (also called \'93mappings\'94)\
+ Address: 10.1.1.1\
+ Interface: GigabitEthernet0\
+\
+Lists/Arrays\
+Routers: \
+-  R1\
+-  R2\
+-  R3\
+\
+Dictionaries (\'93A set of properties grouped together under an item\'94)\
+Bldg_1_Routers: \
+  Floor: 1\
+  Model: Cisco_1841\
+  IOS_Version: 15.1\
+\
+or\'85\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Lists of dictionaries
+\f0\b0  where one-or-more dictionaries are used to define an object. Each object in the list:\
+\'85.is preceded by a hyphen-and-space\
+\'85.objects can have many descriptive attributes\
+\
+areas: \
+-  area_id: 1\
+   Authentication: true\
+   authentication_type: plain_text\
+- area_id: 2\
+  Authentication: true\
+  authentication_type: md5\
+\
+*****In the list above called, \'93areas\'94 we are defining objects.  Each object has three dictionary elements. Hyphens are needed to denote/separate one object from another within the list.\
+\
+*****BE CAREFUL: Sometimes Ansible Module definitions will identify something as one way, (like, 
+\f4 \cf2 \'93\cb3 \expnd0\expndtw0\kerning0
+list\'a0/\'a0elements=dictionary\'94 when in reality it might simply be a dictionary of mappings.
+\f0 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\'97E. Within a block you add \'93mappings\'94 indicated by \'93mapping name: variable\'94\
+\'97\'97\'97Mappings tell Ansible what to do.\
+\'97\'97\'97Mappings within a block can be either:\
+\'97\'97\'97\'97inserted on the same line as the block symbol-and-space\
+\'97\'97\'97\'97inserted on subsequent lines after the block-and-space, but must be indented two-spaces\
+\
+#Examples:\
+\
+\'97<space>mapping:<space>variable\
+\
+Or\'85\
+\
+\'97<space> \
+<two spaces>mapping:<space>variable\
+\
+\'97\'97\'97The \'93mapping name\'94 must be something known to YAML, JSON and/or the Ansible module you\'92re using.\
+\'97\'97\'97There must be a single space after the colon\
+\'97\'97\'97Mappings may contain sub-mappings or even sub-blocks\
+\'97\'97\'97\'97A sub-mapping or sub-block must be indented two spaces to denote that it is at a sub-level\
+\'97\'97\'97Common mapping names:\
+\'97\'97\'97\'97name:Descriptive name of task #This is INCORRECT.  No space after the colon\
+\'97\'97\'97\'97name: Descriptive name of task #This is CORRECT\
+\'97\'97\'97\'97hosts: 12.2.100.2  #A playbook executed against a single host\'85not very useful\
+\'97\'97\'97\'97hosts: my_routers  #A playbook executed against a group of hosts defined in the Ansible \'93hosts\'94 file\
+\
+\
+##Examples of sub-mappings:\
+\
+\'97 \
+  tasks:\
+    - name: Generate Configs\
+      cisco.ios.ios_config:\
+        backup: yes \
+\
+##Note there are two spaces before \'93tasks:\'94 and a single space after the colon.\
+##Note there is a new list/block begun under \'93tasks:\'94\
+\
+\'97\'97\'97Within the Ansible documentation for the mapping, it will indicate what type of argument is supported such as:\
+\'97\'97\'97\'97integer\
+\'97\'97\'97\'97string (allows for additional string operators like \'93contains\'94 or \'93includes\'94)\
+\'97\'97\'97\'97raw (you can type whatever you want and neither YAML nor the underlying Python code will try to interpret what you typed)\
+\'97\'97\'97\'97boolean (yes | no)\
+\
+\'97\'97\'97\'97If a mapping indicates that it can take (as an argument) a string/raw OR a list then you have choices:\
+\'97\'97\'97\'97\'97Provide a single argument as a string/raw such as -  command: show version\
+\'97\'97\'97\'97\'97Provide multiple arguments, delineated by a list with each item prepended with a dash-space such as:\
+\'85\'85\'85\'85\'85\'85..commands:\
+                          - show version\
+                          - show interfaces\
+\
+\
+\'97F. 
+\f1\b Initial Playbook Requirements
+\f0\b0  (each of these on its own separate line)\
+\'97\'97i. What \'93hosts\'94 will it be targeting (i.e. network devices)\
+\'97\'97ii. Will it be required to gather basic \'93facts\'94 about the device? \
+\'97\'97\'97\'97more about \'93gather_facts\'94 in a moment\
+\'97\'97iii. How will it be expected to connect to the host(s)?\
+\'97\'97\'97\'97\'97a local connection (for Ansible running on the same server it will control. Not typically used for networking)\
+\'97\'97\'97\'97\'97b. An SSH network connection?\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97I. Username?\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97ii. Password?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs72 \cf2 \
+**********************************************
+\fs36 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 Ansible
+\f0\b0  
+\f1\b Ad-Hoc Commands
+\fs72 \cf2  \
+
+\f0\b0\fs36 Adhoc commands are not scalable and not something you can save-and-reuse later.\
+For that purpose they are not covered in this course.\
+\
+A simple ad-hoc command to ping all devices within that Hosts file\
+\'97\'97ansible all -m ping\
+\'97\'97Does NOT send an ICMP ping\
+\'97\'97Sends DNS request to TCP port 53 to the host\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs48 \cf2 *********************************************************************
+\fs36 \cf2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul Creating Playbooks
+\f0\b0\fs36 \cf2 \ulnone \
+1. Describe functionality and purpose of Playbooks\
+2. Display a sample Playbook\
+3. Playbooks are written in YAML\
+4. First things you must decide before creating a Playbook\
+\'97\'97A. Will your playbook be targeting a single host, or multiple hosts (most likely multiple)\
+\'97\'97B. If multiple hosts\'85\
+\'97\'97\'97i. Do they all run the same OS?\
+\
+5. Our first playbook (
+\f1\b ***NOTE: Video course will display lab demonstrations in a different order than these notes
+\f0\b0 )\
+\'97\'97A. A playbook that will login to several devices, retrieve their configs and store them locally as backup config files.\
+\'97\'97\'97Describe how this would have to be done manually\
+\'97\'97\'97\'97One-by-one access to nodes\
+\'97\'97\'97\'97Saving running-config to FTP or TFTP server or\'85\
+\'97\'97\'97\'97Issuing \'93show run\'94 command, manually copying-and-pasting each config into a text file\
+\
+\'97\'97B. According to the Ansible docs this task creates backup config files and saves them to a \'93backup\'94 directory\
+\'97\'97\'97If \'93backup\'94 directory doesn\'92t exist, docs SAY that Ansible will create it\'85NOT!\
+\'97\'97\'97You must first create this directory AND change the permissions so Ansible can write new files to it.\
+\'97\'97\'97Demonstrate running the playbook WITHOUT any \'93backup\'94 directory created first\
+\'97\'97\'97Demonstrate running the playbook with a \'93backup\'94 directory but with default permissions\
+\'97\'97\'97Change the permissions of \'93backup\'94\
+\'97\'97\'97\'97\'97
+\f1\b sudo mkdir /etc/ansible/backup\
+\'97\'97\'97\'97\'97sudo chmod 777 /etc/ansible/backup\
+\'97\'97\'97\'97\'97ls -ld backup \'97> To view the new permissions
+\f0\b0 \
+\
+\
+6. Within a task, when pushing configuration commands to a Cisco device the \'93state\'94 variable can be set to:\
+\'97merged (adds to existing config)\
+\'97replaced (for config commands that are boolean\'85replaces existing values with new values)\
+\'97overriden (overrides all configuration under parent\'85such as \'93interface\'94\'85with new child config)\
+\'97deleted (deletes all child configuration beneath the parent, but does not delete the parent itself)\
+\'97rendered (this is an interesting one!  If you don\'92t know the exact CLI for your platform, but know what variables to insert into the YAML file, this will \'93render\'94 the correct CLI syntax for that platform!\
+\
+\'97\'97For reference: https://github.com/ansible-collections/cisco.ios/blob/main/docs/cisco.ios.ios_l3_interfaces_module.rst\
+\
+\
+7. Printing output to the screen\
+\'97A. When a task within a playbook results in the network devices displaying something (like output from a \'93show\'94 command, or a prompt such as \'93continue?\'94 by default the Playbook just ignores that information and doesn\'92t display it to you.\
+\
+\'97B. Two things you can do with this type of data:\
+\'97\'97Print it to the screen in realtime directly after your playbook is done\
+\'97\'97Save it to a file\
+\
+\'97C. Screen printing with Debug & Register\
+\'97\'97As part of your named task you will need to save the output from the network device to a variable.  \'97\'97\'97This is done using the \'93register\'94 command:\
+\'97\'97\'97You can view what has been saved to the register with the \'93debug\'94 command which:\
+\'97\'97\'97\'97\'97Is a \'93builtin\'94 plugin for Ansible (comes with Ansible no matter which Collection you select)\
+\'97\'97\'97\'97\'97Is equivalent to a \'93print\'94 statement\
+\'97\'97\'97\'97\'97references the variable you created\
+\'97\'97\'97\'97\'97\'85.followed by a dot (.)\
+\'97\'97\'97\'97\'97\'85followed by \'93stdout_lines\'94 which informs Ansible to print the output and retain line-breaks.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Tasks: \
+-  name: Example_Task\
+   cisco.ios.____.____\
+      commands: show _____\
+   register: My_Register\
+\
+-  debug: var=My_Register.stdout_lines
+\f0\b0 \
+\
+(
+\f13\i\b \cf2 Alternative method which does the EXACT same thing
+\f0\i0\b0 \cf2 )\
+
+\f1\b - debug:\
+    var: My_Register
+\f0\b0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf2 \ul Lab Demonstrations
+\f0\b0\fs36 \cf2 \ulnone \
+1. 
+\f1\b Viewing and modifying the Ansible Hosts file
+\f0\b0 \
+\
+2. 
+\f1\b Sending individual CLI commands to devices
+\f0\b0  \
+Simple playbook that sends a single IOS command to each device (also demonstrating usage of the \'93debug\'94 parameter to view the returned results)\
+\'97\'97
+\f1\b 2-send_command.yaml
+\f0\b0 . (
+\f1\b couple of \'93show\'94 commands to IOS-XE routers. Debug output to stdout
+\f0\b0 )\
+\'97\'97
+\f1\b 5-send_commands.yaml 
+\f0\b0 (
+\f1\b creates and verifies Loopback/Dummy interface
+\f0\b0 )3. 
+\f1\b Creating Backup Config Files (i.e. Golden Configs) \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0 \cf2 \
+3. 
+\f1\b Simple playbook that creates config backup files
+\f0\b0 \
+\'97\'97
+\f1\b 1-config_backup.yaml
+\f0\b0  (point out lines at top of file that cannot be used when reverting to this config)\
+\'97\'97
+\f1\b 1a-config_backup.yaml 
+\f0\b0 (playbook that demonstrates the ability of Ansible to parse through saved text files, search for specific text/lines and remove those lines)\
+**********In the file 1a_config_backup.yaml there is a 
+\f1\b builtin plugin
+\f0\b0  used called, \'93lineinfile\'94\
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html\
+\'97\'97\'97Under that plugin we are using \'93line\'94 and \'93regexp\'94 to search for matching patterns and then \'93state: absent\'94 to remove those lines from the file.\
+\'97\'97\'97If a line is always the same text you can search for it using the \'93line\'94 variable\
+\'97\'97\'97If a line contains text that is unpredictable you can search for the predictable pattern in that line using regular expressions (regexp).\
+\'97\'97\'97Only a SINGLE REGEXP pattern can be matched within a \'93lineinfile\'94 plugin. If there are two-or-more patterns only the last pattern entered will be search for.\
+\'97\'97\'97This is why you\'92ll see TWO \'93lineinfile\'94 entries both search on RegExp patterns.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Inserting Config Lines W/O knowledge Of CLI Syntax (\cf9 ***NOTE: Not demonstrated in video course however YAML file is provided so you can test this yourself\cf2 )
+\f0\b0 \
+A playbook that uses an IOS module to insert multiple lines of config (without having to know the exact IOS syntax)\
+\'97\'97
+\f1\b 6-Manage-Admin-Accounts.yaml 
+\f0\b0 (
+\f1\b module demonstrates creating and deleting user accounts
+\f0\b0 )\
+\
+4. 
+\f1\b Performing \'93Diffs\'94 against current Running_Config and saved \'93Master_Config\'94 on hosts
+\f0\b0 \
+\
+If something isn\'92t working correctly in your network, you might first want to scan the configs of all your managed devices to see if any of them have changed from their assigned/saved \'93master config\'94.\
+\'97\'97 11-Config-Diffs.yaml\
+\'97\'97\'97\'97Uses a simple module with two lines to perform the action\
+\'97\'97\'97\'97This particular action does NOT display anything when the playbook is run and:\
+\'97\'97\'97\'97\'97Doesn\'92t support registering/debugging the output\
+\'97\'97\'97\'97\'97Doesn\'92t support sending the output to a file\
+\'97\'97What are my options??\
+\'97\'97\'97run the \'93ansible-playbook\'94 command with the argument \'93\'97\'97diff\'94. However this is only useful if you are checking on one or two devices.\
+\'97\'97\'97Same command as above (including - -diff), but append the linux command, \'93 > <path/filename>\'94 to redirect the output from stdout into a file.\
+\'97\'97\'97After file is created:\
+\'97\'97\'97\'97\'97navigate to file directory\
+\'97\'97\'97\'97\'97grep the file such as: grep -i \'91changed\'92 diffs.txt \
+\
+5. 
+\f1\b Restoring Backup Configurations onto network devices
+\f0\b0 \
+\'97\'97
+\f1\b 9-Backup-Restore.yaml 
+\f0\b0 \
+\'97\'97\'97\'97Configures SCP on remote device\
+\'97\'97\'97\'97Configures (temporary) username and \'93nopassword\'94 on remote device\
+\'97\'97\'97\'97Transfers saved \'93Golden Config\'94 file from server back to router via SCP\
+\'97\'97\'97\'97Forces router to revert to Golden Config with \'93config replace \'85 force\'94 command \
+\
+\'97\'97This involves first obtaining and storing your Golden Configs onto the Ansible Control Node \
+\'97\'97There are several ways one could restore configs to a networking device:\
+\'97\'97\'97Use the ios_command module to send individual lines one-by-one\
+\'97\'97\'97Use a different module (like ospf_config) to update entire sections of the config at once\
+\'97\'97\'97Use something else to grab a Golden-Config file that you saved earlier, upload it to the device via SCP and then revert the network device\'92s config to that Golden Config\
+\
+This is the process:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl440\partightenfactor0
+\ls4\ilvl0\cf2 \cb4 1. G\expnd0\expndtw0\kerning0
+et each router to a "golden" state, which contains an SSH username and password of "admin/ine" as well as routing stuff, ACLs, etc.\cb1 \
+\ls4\ilvl0\cb4 2. Use ansible to reach out to each device, collect its Running_Config and save it locally as a file on the Ansible server. (Lab Demonstration #3)\cb1 \
+\ls4\ilvl0\cb4 3. Flash forward to days/weeks/months later when you realize someone has tampered with the config of one of your routers and you need to revert it back to the Golden Config\cb1 \
+\pard\pardeftab720\sl440\partightenfactor0
+\cf2 	\cb10 ---a. BTW reverting it back with Ansible is ONLY possible if you can still SSH into that device.\'a0 If that part of the config is gone...Ansible is dead-in-the-water.\
+\cb1 \
+\cb4 4. Start an Ansible playbook for restoring the Golden Config which does the following tasks:\cb1 \
+\cb4 --A. Logs into the device via SSH and adds the commands:\cb1 \
+\cb4 -----configure terminal\cb1 \
+\cb4 \'97\'97ip scp server enable\
+-----username user privilege 15 no password\cb1 \
+\cb4 ##The above username is critical to this process.  Regardless of what credentials you have stored in your \'93Hosts\'94 file, Ansible will (when initiating an SCP session to the Router/Switch) present itself as however YOU have logged into your Ansible Control Node.\
+##In my case, when I login to the Ubuntu server my username is \'93user\'94, which is what Ansible will present to the Router/Switch upon SCP initiation.\
+##The \'93nopassword\'94 argument is required to prevent Ansible from presenting you with a \'93password\'94 prompt so it can continue its play automatically. \
+\cb1 \
+\cb4 ---B. Initiates an SCP session to the router and downloads into Flash memory the Golden Config that you saved earlier.\cb1 \
+\cb4 ---C. As the final task, initiates the "config replace flash:\{\{inventory_hostname\}\}.config force" command\cb1 \
+\cb4 ---D. The "Golden Config" does NOT contain the "username user" command, so as soon as it is reverted, that (very insecure) username disappears.
+\fs30 \cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \ul IMPORTANT NOTES
+\f0\b0 \cf2 \ulnone :\
+1. When using the \'93command\'94 module to initiate SCP connections, this module does not seem to check the /etc/ansible/hosts file but instead relies on the regular system\'92s /etc/hosts file for connections.  Therefore, if you will be connecting via hostname, a mapping of hostname-to-IP address needs to be present in the /etc/hosts file.\
+\
+2. 
+\f1\b Sometimes when using Ansible (especially when using Cisco\'92s DevNet Sandbox devices as your nodes) you may encounter SSH errors (such as \'93Failed to add the host to the list of known hosts\'94).\
+\
+Because this is only a lab environment, the easiest way to circumvent this problem is to disable \'93hostkeychecking\'94 in the SSH config file. This is VERY DANGEROUS to do on a real box, but if Ansible is running with an Ubuntu VM or something it\'92s okay (as long as you don\'92t use that same VM to do banking, online shopping or anything else).
+\f0\b0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf5 Cd /etc/ssh\
+Sudo vim ssh_config\
+StrictHostKeyChecking no\cf2   \'97> default to \'93ask\'94\
+\
+*************************************\
+*************************************\
+*************************************\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 FINAL THOUGHTS-1:
+\f0\b0  Ansible is Open Source\'85which means there is no oversight and nobody to \'93blame\'94 if something doesn\'92t work correctly.  This sometimes results in modules and parameters that don\'92t work as documented.  There is no way to KNOW this in advance and no documentation of these types of bugs.\
+\
+That\'92s the joy of Open Source\
+\
+
+\f1\b FINAL THOUGHTS-2:
+\f0\b0  As we\'92ve seen, working knowledge of Ansible for network devices does NOT mean you don\'92t need to know the CLI. For people who say, \'93you don\'92t need to know the CLI anymore\'94 they are WRONG (at least with Ansible).  Ansible is simply opening a TCP:22 socket to the remote node and sending the same commands that YOU would send manually. As such, in order to get Ansible to work properly you STILL need to know things like:\
+\'97What arguments and variables are accepted in the CLI?\
+\'97In what order does the CLI expect things to be configured?\
+\'97Would the CLI normally give you a prompt after a certain command?  If so, what is it and what are the acceptable answers?\
+\'97What CLI command would be used to confirm that you\'92ve entered the correct configuration?\
+\'97If Ansible sends some new configuration data to the CLI, will the CLI consider that cumulative (added onto what it already has) or will it replace existing values?\
+\
+\
+
+\f1\b FINAL THOUGHTS-3
+\f0\b0 \
+1. In a real environment, the Ansible Control Node would have a public-private RSA key pair installed, and its RSA Public Key would be pre-loaded into each Ansible Node that was going to be controlled. This must be accomplished first (creating pub/private key pairs in Ubuntu box and loading the Public Key into the Routers) prior to any further work.\
+https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804\
+https://netsudrun.wordpress.com/2019/12/19/how-to-login-to-cisco-devices-using-ssh-key/\
+\
+******Notes:\
+\'97\'97\'97Place the following VIM shortcuts into Ubuntu Text Editor:\
+\
+*************************\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf11 Nifty VIM Shortcuts:
+\f0\b0\fs36 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 Add #-character to beginning of lines 5-15:\
+5,15s/^/#/
+\f0\b0 \
+\
+
+\f1\b Remove first character (whatever it is) from beginning of lines 5-15:
+\f0\b0 \
+
+\f1\b 5,15s/^.\\\{1\}//
+\f0\b0 \
+}

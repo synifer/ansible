@@ -1,0 +1,15 @@
+---
+
+- name: Run show commands on routers
+  hosts: routers
+  gather_facts: false
+
+  tasks:
+
+    - name: run show ip int brief
+      ios_command:
+        commands: sh ip int br
+      register: sh_ip_int_br_result
+
+    - name: Debug registered var
+      debug: var=sh_ip_int_br_result.stdout_lines

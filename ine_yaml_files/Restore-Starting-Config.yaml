@@ -1,0 +1,18 @@
+---
+- 
+  name: Restoring Base Configs
+  hosts: dist-r2
+  gather_facts: no
+
+  tasks:
+
+    - name: Rollback to saved-good config
+      cisco.ios.ios_command:
+        commands: 
+          - config replace flash:ansible-base force
+          - show configuration history | i rollback
+      register: output
+
+    - debug: var=output.stdout_lines
+
+

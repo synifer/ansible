@@ -1,0 +1,8 @@
+---
+
+- name: Run command on R1
+  hosts: 192.168.60.11
+  tasks:
+    - name: run show clock
+      ios_command:
+        commands: show clock

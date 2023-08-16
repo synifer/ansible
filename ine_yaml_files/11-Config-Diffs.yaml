@@ -1,0 +1,13 @@
+---
+- 
+  name: Scanning For Configuration Changes
+  hosts: all
+  gather_facts: no
+
+  tasks:
+
+
+    - name: Perform Config Diff Against Master Config
+      cisco.ios.ios_config:
+        diff_against: intended
+        intended_config: "{{ lookup('file', '/etc/ansible/YAML-Files/backup/{{inventory_hostname}}.config') }}"
