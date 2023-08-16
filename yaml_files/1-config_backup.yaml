@@ -11,4 +11,4 @@
         backup: yes
         backup_options:
           dir_path: /home/n9kway/ansible/yaml_files/backup/
-          filename: "{{inventory_hostname}}-backup.config"
+          filename: "{{inventory_hostname}}_backup.config"

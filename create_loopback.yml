@@ -10,16 +10,16 @@
       cisco.ios.ios_command:
         commands: 
           - configure terminal
-          - interface loopback99
+          - interface loopback100
           - description Created-By-Ansible
           - end
 
 
-    - name: Verifying Loopback99
+    - name: Verifying Loopback100
       cisco.ios.ios_command:
-        commands: show run interface loopback99
-      register: loopback99
+        commands: show run interface loopback100
+      register: loopback100
 
-    - debug: var=loopback99.stdout_lines
+    - debug: var=loopback100.stdout_lines
 
 
