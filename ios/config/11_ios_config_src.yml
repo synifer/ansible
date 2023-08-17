@@ -1,0 +1,10 @@
+---
+
+- name: Run cfg commands on router
+  hosts: 192.168.100.1
+
+  tasks:
+
+    - name: Config ACL
+      ios_config:
+        src: templates/acl_cfg.txt

@@ -1,0 +1,13 @@
+---
+
+- name: Collect IOS facts
+  hosts: routers 
+
+  tasks:
+
+    - name: Facts
+      ios_facts:
+        gather_subset: all
+      register:  ansible_net_all_ipv4_addresses
+    - name: debug
+      debug: var=ansible_net_all_ipv4_addresses

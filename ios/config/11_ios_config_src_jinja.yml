@@ -1,0 +1,10 @@
+---
+
+- name: Run cfg commands on router
+  hosts: cisco-routers
+
+  tasks:
+
+    - name: Config OSPF
+      ios_config:
+        src: templates/ospf.j2

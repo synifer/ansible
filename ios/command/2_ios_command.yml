@@ -1,0 +1,16 @@
+---
+
+- name: Run show commands on routers
+  hosts: routers
+
+  tasks:
+
+    - name: run show commands
+      ios_command:
+        commands:
+          - show ip int br
+          - sh ip route
+      register: show_result
+
+    - name: Debug registered var
+      debug: var=show_result.stdout_lines

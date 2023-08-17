@@ -1,0 +1,21 @@
+---
+
+- name: Collect IOS facts
+  hosts: routers
+
+  tasks:
+
+    - name: Facts
+      ios_facts:
+        gather_subset: interfaces
+
+    - name: Create facts_result dir
+      file: 
+        path: ./facts_result/
+        state: directory
+        mode: 0755
+
+    - name: Copy facts to files
+      copy:
+        content: "{{ansible_net_interfaces['GigabitEthernet3']['ipv4'] | to_nice_yaml}}"
+        dest: "facts_result/{{inventory_hostname}}_ipv4_facts.yaml"

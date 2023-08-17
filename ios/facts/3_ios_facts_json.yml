@@ -1,0 +1,21 @@
+---
+
+- name: Collect IOS facts
+  hosts: routers
+
+  tasks:
+
+    - name: Facts
+      ios_facts:
+        gather_subset: interfaces
+
+    - name: Create all_facts dir
+      file:
+        path: ./facts_result/
+        state: directory
+        mode: 0755
+
+    - name: Copy facts to files
+      copy:
+        content: "{{ ansible_facts | to_nice_json }}"
+        dest: "facts_result/{{inventory_hostname}}_facts.json"

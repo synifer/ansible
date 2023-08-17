@@ -1,0 +1,18 @@
+---
+
+- name: Run show commands on routers
+  hosts: routers
+
+  tasks:
+
+    - name: run show commands
+      ios_command:
+        commands: ping 192.168.60.10 timeout 1
+        wait_for:
+          - result[0] contains 'Success rate is 100 percent'
+        retries:  2
+        interval: 12
+      register: result_all
+
+    - name: debug
+      debug: var=result_all

@@ -1,7 +1,7 @@
 ---
 - 
   name: Restoring Backup Configs
-  hosts: all
+  hosts: routers
   gather_facts: no
 
   tasks:
@@ -11,12 +11,12 @@
         commands: 
           - configure terminal
           - ip scp server enable
-          - username keithbogart privilege 15 password cisco
+          - username n9kway privilege 15 password cisco
 ##  The username in the command above should be changed to your local machine's username ##
           - end
 
     - name: Restoring Golden Config
-      command: scp ./backup/{{inventory_hostname}}.config {{inventory_hostname}}:/{{inventory_hostname}}.config
+      command: scp .yaml_files/backup/{{inventory_hostname}}.config {{inventory_hostname}}:/{{inventory_hostname}}.config
 
     - name: Reverting To Golden Config
       cisco.ios.ios_command:
