@@ -1,15 +1,17 @@
 ---
 
 - name: Run cfg commands on router
-  hosts: 192.168.100.1
+  hosts: 192.168.60.12
 
   tasks:
 
     - name: Config interface
       ios_config:
         parents:
-          - interface Ethernet0/3
+          - "interface GigabitEthernet {{item}}"
         lines:
-          - ip address 192.168.130.1 255.255.255.0
+          - ip address 10.1.200.2 255.255.255.0
         after:
           - no shutdown
+      with_items:
+        - 4

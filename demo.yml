@@ -1,0 +1,22 @@
+---
+
+- name: Host description
+  hosts: routers
+  gather_facts: no
+
+  task:
+    
+#     - name: Create result directory
+#       file:
+#         path: ./facts_result/
+#         state: directoty
+#         mode: 0755
+#     - name: Copy result to files
+#       copy: 
+#       content: "{{}}" 
+
+    register: cfg
+
+    - name: show config updates
+      debug: var=cfg.updates
+      when: cfg.changed

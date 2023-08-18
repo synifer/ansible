@@ -1,0 +1,17 @@
+---
+
+- name: Run cfg commands on routers
+  hosts: routers
+
+  tasks:
+
+    - name: Configure interface MTU
+      ios_config:
+        parents:
+          - "interface GigabitEthernet {{item}}"
+        lines:
+          - ip mtu 1500
+      with_items:
+        - 1
+        - 2
+        - 3

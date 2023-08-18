@@ -1,16 +1,18 @@
 ---
 
 - name: Run cfg commands on routers
-  hosts: 192.168.100.1
+  hosts: 192.168.60.11
 
   tasks:
 
     - name: Config interface
       ios_config:
         parents:
-          - interface Ethernet0/2
+          - "interface GigabitEthernet {{item}}"
         lines:
-          - ip address 190.16.200.1 255.255.255.0
+          - ip address 10.1.200.1 255.255.255.0
           - ip mtu 1500
         defaults: yes
+      with_items:
+        - 4
 

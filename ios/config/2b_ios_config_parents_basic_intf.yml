@@ -1,0 +1,14 @@
+---
+
+- name: Run cfg commands on routers
+  hosts: routers
+
+  tasks:
+
+    - name: Config interface loopback
+      ios_config:
+        parents:
+          - interface loopback0
+        commands:
+          - ip address 1.1.1.1 255.255.255.255
+
