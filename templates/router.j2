@@ -1,0 +1,100 @@
+!Configuration Built on {{ now }}
+
+enable
+!
+configure terminal
+!
+clock timezone {{ timezone }}
+!
+hostname {{ hostname }}
+!
+no ip domain lookup
+!
+{% if domain_name|length > 0 %}
+ip domain name {{ domain_name }}
+{% endif %}
+!
+{% if logging_console|length > 0 %}
+logging console {{ logging_console }}
+{% endif %}
+!
+{% if logging_buffer_size|length > 0 %}
+logging buffered {{ logging_buffer_size }}
+!
+{% endif %}
+username {{ username }} privilege 15 algorithm-type {{ algorithm_type }} secret {{ password }}
+{% if enable_password|length > 0 %}
+!
+enable algorithm-type {{ algorithm_type }} secret {{ enable_password }}
+{% endif %}
+!
+{% if lldp == 'yes' %}
+lldp run
+{% endif %}
+!
+{% if ssh_key_size|length > 0 %}
+crypto key generate rsa general-keys modulus {{ ssh_key_size }}
+!
+{% endif %}
+{% if ssh_key_size|int >= 1024 and ssh_version == '2' %}
+ip ssh version 2
+{% else %}
+ip ssh version 1.99
+{% endif %}
+!
+{% if http_server == 'no' %}
+no ip http server
+!
+no ip http secure-server
+{% endif %}
+!
+banner motd $
+#################** D I S C L A I M E R **##################
+# #
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED #
+# #
+# Restricted to authorized individuals ONLY. #
+# #
+# You MUST have explicit, authorized permission to #
+# access or configure this device. #
+# #
+# All activities performed on this device are logged, #
+# monitored, and recorded. #
+# #
+# Unauthorized attempts and actions to access, modify #
+# or use this system may result in civil and/or criminal #
+# penalties. #
+# #
+# Disconnect IMMEDIATELY if you are not an authorized #
+# user. #
+# #
+############################################################
+$
+!
+line console 0
+logging synchronous
+login local
+stopbits 1
+exit
+!
+line vty 0 {{ vty_lines }}
+logging synchronous
+{% if login_local == 'yes' %}
+login local
+{% endif %}
+exec-timeout {{ timeout }} 0
+{% if transport_input|length > 0 %}
+transport input {{ transport_input }}
+{% else %}
+transport input all
+{% endif %}
+{% if transport_output|length > 0 %}
+transport output {{ transport_output }}
+{% else %}
+transport output all
+{% endif %}
+exit
+!
+end
+!
+! copy running-config startup-config

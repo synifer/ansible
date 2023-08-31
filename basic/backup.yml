@@ -4,8 +4,6 @@
   hosts: routers
   gather_facts: true
 
-  vars:
-    config: show running-config
 
   tasks:
     
@@ -17,4 +15,4 @@
     - name: save running config to ~/ansible/backup
       copy:
         content: "{{ config.stdout[0] }}"
-        dest: "~/ansible/backup/running_config_{{ inventory_hostname }}.cfg"
+        dest: "{{ backup_path }}" 

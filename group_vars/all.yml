@@ -10,7 +10,8 @@ ansible_become_pass: cisco
 
 ios_inv_tmp_j2: /home/n9kway/ansible/templates/Reports/inventory_report.j2
 dst_path: /home/n9kway/ansible/results/html/inventory_report.html
-
+backup_path: "~/ansible/backup/runnning_config_{{inventory_hostname }}.cfg"
+config: show running-config
 # nodes:
 #   r1: 
 #    Loopback300: '192.168.10.3'
