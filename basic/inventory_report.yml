@@ -12,8 +12,8 @@
 
      - name: Create HTML report
        template:
-         src: "{{ ios_inv_tmp_j2 }}"
-         dest: "{{ dst_path }}"
+         src: "{{ inventory_template }}"
+         dest: "{{ inventory_report }}"
        delegate_to: localhost 
        run_once: true
 

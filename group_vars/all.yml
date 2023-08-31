@@ -11,8 +11,9 @@ ansible_become_pass: cisco
 
 # Path vars
 
-ios_inv_tmp_j2: ~/ansible/templates/Reports/inventory_report.j2
-dst_path: ~/ansible/results/html/inventory_report.html
+inventory_template: ~/ansible/templates/reports/inventory_report.j2
+inventory_report: ~/ansible/results/html/inventory_report.html
+
 backup_path: "~/ansible/backup/runnning_config_{{inventory_hostname }}.cfg"
 
 
