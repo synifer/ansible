@@ -1,0 +1,21 @@
+---
+
+ - name: Run show commands on routers
+   hosts: routers
+   gather_facts: true
+
+   tasks:
+
+     - name: Debug var
+       debug: 
+         var: ansible_net_all_ipv4_addresses
+
+     - name: Configure NTP
+       cli_config:
+         config: "{{ lookup('file', '~/ansible/ios/config/templates/ntp.txt') }}"
+
+     - name: Config OSPF
+       cli_config:
+         config: "{{ lookup('template', '~/ansible/ios/config/templates/ospf.j2') }}"
+
+        #config: "{{ lookup('template', '~/ansible/ios/config/templates/{{ansible_network_os}}_ospf.j2') }}"

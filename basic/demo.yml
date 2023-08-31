@@ -1,44 +1,22 @@
 ---
 
-- name: Description of my first play
-  hosts: Building_1_routers
+- name: Host description
+  hosts: routers
   gather_facts: no
 
   task:
-    -
-      name: This is my first task and accomplishes
-      <module_name>:
-        <arguments>
-  task:
-    -
-      name: module ios_command
-      cisco.ios.ios.command:
-        commands:
-          - show ip route
-          - show ip version
-      register: ouput
-    - debug: 
+    
+#     - name: Create result directory
+#       file:
+#         path: ./facts_result/
+#         state: directoty
+#         mode: 0755
+#     - name: Copy result to files
+#       copy: 
+#       content: "{{}}" 
 
+    register: cfg
 
-# routing_protocols:
-#   -
-#     BGP:
-#       -
-#         process_id: 100
-#         process_name: ine
-#     EIGRP:
-#       -
-#         process_id: 4
-#         process_name: ine
-#     OSPF:
-#       - 
-#         process_id: 45
-#         process_name: cisco
-
-# commands:
-#   - show ip bgp summary
-#   - show ip bgp neighbors
-#   - show ip bgp
-
-
-
+    - name: show config updates
+      debug: var=cfg.updates
+      when: cfg.changed

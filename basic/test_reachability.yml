@@ -1,0 +1,5 @@
+---
+
+- name: Test Reachability to Cisco Routers in EVE-NG 
+  ansible_netcommon.net_ping:
+    dest: routers

@@ -1,0 +1,111 @@
+GigabitEthernet1:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4: []
+    lineprotocol: up
+    macaddress: 5000.0009.0000
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: up
+    type: CSR vNIC
+GigabitEthernet2:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4:
+    -   address: 190.16.200.1
+        subnet: '24'
+    lineprotocol: up
+    macaddress: 5000.0009.0001
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: up
+    type: CSR vNIC
+GigabitEthernet3:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4:
+    -   address: 192.168.60.11
+        subnet: '24'
+    lineprotocol: up
+    macaddress: 5000.0009.0002
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: up
+    type: CSR vNIC
+GigabitEthernet4:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4:
+    -   address: 10.1.200.1
+        subnet: '24'
+    lineprotocol: up
+    macaddress: 5000.0009.0003
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: up
+    type: CSR vNIC
+Loopback0:
+    bandwidth: 8000000
+    description: null
+    duplex: null
+    ipv4:
+    -   address: 1.1.1.1
+        subnet: '32'
+    lineprotocol: up
+    macaddress: null
+    mediatype: null
+    mtu: 1514
+    operstatus: up
+    type: null
+Loopback100:
+    bandwidth: 8000000
+    description: Created-By-Ansible
+    duplex: null
+    ipv4: []
+    lineprotocol: up
+    macaddress: null
+    mediatype: null
+    mtu: 1514
+    operstatus: up
+    type: null
+Loopback4:
+    bandwidth: 8000000
+    description: null
+    duplex: null
+    ipv4:
+    -   address: 4.4.4.4
+        subnet: '32'
+    lineprotocol: up
+    macaddress: null
+    mediatype: null
+    mtu: 1514
+    operstatus: up
+    type: null
+Loopback90:
+    bandwidth: 8000000
+    description: null
+    duplex: null
+    ipv4:
+    -   address: 9.9.9.9
+        subnet: '32'
+    lineprotocol: up
+    macaddress: null
+    mediatype: null
+    mtu: 1514
+    operstatus: up
+    type: null
+Loopback99:
+    bandwidth: 8000000
+    description: Created-By-Ansible
+    duplex: null
+    ipv4: []
+    lineprotocol: up
+    macaddress: null
+    mediatype: null
+    mtu: 1514
+    operstatus: up
+    type: null

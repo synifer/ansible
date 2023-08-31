@@ -1,0 +1,7 @@
+---
+
+- name: Rollback configuration
+  gather_facts: false
+  hosts: routers
+  roles:
+    - rollback-config

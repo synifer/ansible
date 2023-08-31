@@ -1,9 +1,0 @@
----
-
-hostname: r1
-loopback: 100
-loopback_ip: 10.10.10.1
-ospf_ints:
-  - 10.10.10.1
-  - 10.10.1.1
-  - 10.255.1.1

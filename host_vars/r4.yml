@@ -1,0 +1,11 @@
+
+---
+
+hostname: r4
+loopback: 0
+loopback_ip: 4.4.4.4
+ospf_ints:
+  - 10.1.2.4
+  - 10.1.5.4
+  - 4.4.4.4
+outside_intf: GigabitEthernet 1

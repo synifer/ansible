@@ -1,10 +1,14 @@
 ---
 
 - name: Run cfg commands on router
-  hosts: cisco-routers
+  hosts: routers
 
   tasks:
 
+    - name: Gather facts 
+      ios_facts:
+        gather_subset: interfaces
+
     - name: Config OSPF
       ios_config:
-        src: templates/ospf.j2
+        src: templates/ospf_facts.j2

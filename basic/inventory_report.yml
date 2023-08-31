@@ -1,0 +1,20 @@
+---
+
+ - name: Generating an HTML report
+   hosts: routers
+   gather_facts: false
+
+   tasks:
+
+     - name: Gathering ios facts
+       ios_facts:
+         gather_subset: all
+
+     - name: Create HTML report
+       template:
+         src: "{{ ios_inv_tmp_j2 }}"
+         dest: "{{ dst_path }}"
+       delegate_to: localhost 
+       run_once: true
+
+ 

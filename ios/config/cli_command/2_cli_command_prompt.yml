@@ -1,0 +1,15 @@
+---
+
+  - name: Clear counters
+    hosts: routers
+
+    tasks:
+
+      - name: Clear Interface counters
+        cli_command:
+          command: clear counters lo100
+          prompt: 'Clear "show interface" counters on this interface'
+          answer: y
+
+
+ 

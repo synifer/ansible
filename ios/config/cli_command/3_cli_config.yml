@@ -1,0 +1,15 @@
+---
+
+ - name: Run show commands on routers
+   hosts: routers
+
+   tasks:
+
+     - name: Configure NTP
+       cli_config:
+         config: "{{ ntp_config }}"
+       register: command_output
+
+     - name: Debug registered var
+       debug:
+         var: command_output

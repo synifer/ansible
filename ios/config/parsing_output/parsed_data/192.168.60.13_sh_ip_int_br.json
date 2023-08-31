@@ -1,0 +1,38 @@
+[
+    {
+        "INTF": "GigabitEthernet1",
+        "IPADDR": "unassigned",
+        "PROTO": "down",
+        "STATUS": "administratively down"
+    },
+    {
+        "INTF": "GigabitEthernet2",
+        "IPADDR": "unassigned",
+        "PROTO": "down",
+        "STATUS": "administratively down"
+    },
+    {
+        "INTF": "GigabitEthernet3",
+        "IPADDR": "192.168.60.13",
+        "PROTO": "up",
+        "STATUS": "up"
+    },
+    {
+        "INTF": "GigabitEthernet4",
+        "IPADDR": "unassigned",
+        "PROTO": "down",
+        "STATUS": "administratively down"
+    },
+    {
+        "INTF": "Loopback99",
+        "IPADDR": "unassigned",
+        "PROTO": "up",
+        "STATUS": "up"
+    },
+    {
+        "INTF": "Loopback100",
+        "IPADDR": "unassigned",
+        "PROTO": "up",
+        "STATUS": "up"
+    }
+]

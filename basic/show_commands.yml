@@ -1,28 +1,31 @@
 ---
 
-- name: Run show commands on routers
+- 
+  name: Run show commands on routers
   hosts: routers
   gather_facts: false
-  strategy: free # як тільки на девайсі виконано перше завдання, переходити виконувати наступну
+
+  # vars from ansible/group_vars/all.yml
 
   tasks:
 
-    - name: run sh ip int br
+    - name: Run show commands
       ios_command:
-        commands: sh ip int br
-      ignore_errors: true
+        commands:
+          - "{{ hostname }}" 
+          - "{{ arp }}"
+          - "{{ interfaces_info }}"
+          - "{{ clock }}"
+      register: result
 
-    - name: run sh ip arp
-      ios_command:
-        commands: sh ip arp
+    - name: Debug Hostnames
+      debug: var=result.stdout_lines[0]
 
+    - name: Debug Show ARP
+      debug: var=result.stdout_lines[1]
 
-- name: Run command on R1
-  hosts: 192.168.60.11
-  gather_facts: false
+    - name: Debug Show Interface Brief
+      debug: var=result.stdout_lines[2]
 
-  tasks:
-
-    - name: run sh clock
-      ios_command:
-        commands: sh clock
+    - name: Debug Show Clock
+      debug: var=result.stdout_lines[3]

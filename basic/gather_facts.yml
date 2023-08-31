@@ -1,0 +1,26 @@
+---
+
+- 
+  name: Collect IOS Facts
+  hosts: routers
+  gather_facts: false
+
+  tasks: 
+
+    - name: Gather Facts
+      ios_facts:
+        gather_subset: all
+
+    - name: Show IPv6 interface brief
+      ios_command:
+        commands: "{{ ipv6_interface_info }}"
+      register: ipv6_result
+
+    - name: Show result
+      debug: var=ipv6_result
+      when: ansible_net_all_ipv6_addresses | bool
+
+    - name: Copy facts to files
+      copy:
+        content: "{{ ansible_net_interfaces | to_nice_yaml }}" 
+        dest: "~/ansible/backup/all_facts/{{inventory_hostname}}_intf_facts.yaml" 

@@ -1,0 +1,302 @@
+
+PLAY [Collect IOS facts] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.60.12]
+ok: [192.168.60.13]
+ok: [192.168.60.11]
+ok: [192.168.60.14]
+
+TASK [Facts] *******************************************************************
+ok: [192.168.60.11]
+ok: [192.168.60.12]
+ok: [192.168.60.13]
+ok: [192.168.60.14]
+
+TASK [Show ansible_network_resources] ******************************************
+ok: [192.168.60.11] => {
+    "ansible_network_resources": {
+        "interfaces": [
+            {
+                "enabled": true,
+                "name": "GigabitEthernet1"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet2"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet3"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet4"
+            },
+            {
+                "enabled": true,
+                "name": "Loopback0"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback100"
+            },
+            {
+                "enabled": true,
+                "name": "Loopback4"
+            },
+            {
+                "enabled": true,
+                "name": "Loopback90"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback99"
+            }
+        ],
+        "l3_interfaces": [
+            {
+                "name": "GigabitEthernet1"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "190.16.200.1/24"
+                    }
+                ],
+                "name": "GigabitEthernet2"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "192.168.60.11/24"
+                    }
+                ],
+                "name": "GigabitEthernet3"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "10.1.200.1/24"
+                    }
+                ],
+                "name": "GigabitEthernet4"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "1.1.1.1/32"
+                    }
+                ],
+                "name": "Loopback0"
+            },
+            {
+                "name": "Loopback100"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "4.4.4.4/32"
+                    }
+                ],
+                "name": "Loopback4"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "9.9.9.9/32"
+                    }
+                ],
+                "name": "Loopback90"
+            },
+            {
+                "name": "Loopback99"
+            }
+        ]
+    }
+}
+ok: [192.168.60.13] => {
+    "ansible_network_resources": {
+        "interfaces": [
+            {
+                "enabled": false,
+                "name": "GigabitEthernet1"
+            },
+            {
+                "enabled": false,
+                "name": "GigabitEthernet2"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet3"
+            },
+            {
+                "enabled": false,
+                "name": "GigabitEthernet4"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback100"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback99"
+            }
+        ],
+        "l3_interfaces": [
+            {
+                "name": "GigabitEthernet1"
+            },
+            {
+                "name": "GigabitEthernet2"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "192.168.60.13/24"
+                    }
+                ],
+                "name": "GigabitEthernet3"
+            },
+            {
+                "name": "GigabitEthernet4"
+            },
+            {
+                "name": "Loopback100"
+            },
+            {
+                "name": "Loopback99"
+            }
+        ]
+    }
+}
+ok: [192.168.60.12] => {
+    "ansible_network_resources": {
+        "interfaces": [
+            {
+                "enabled": true,
+                "name": "GigabitEthernet1"
+            },
+            {
+                "enabled": false,
+                "name": "GigabitEthernet2"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet3"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet4"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback100"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback99"
+            }
+        ],
+        "l3_interfaces": [
+            {
+                "name": "GigabitEthernet1"
+            },
+            {
+                "name": "GigabitEthernet2"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "192.168.60.12/24"
+                    }
+                ],
+                "name": "GigabitEthernet3"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "10.1.200.2/24"
+                    }
+                ],
+                "name": "GigabitEthernet4"
+            },
+            {
+                "name": "Loopback100"
+            },
+            {
+                "name": "Loopback99"
+            }
+        ]
+    }
+}
+ok: [192.168.60.14] => {
+    "ansible_network_resources": {
+        "interfaces": [
+            {
+                "enabled": false,
+                "name": "GigabitEthernet1"
+            },
+            {
+                "enabled": false,
+                "name": "GigabitEthernet2"
+            },
+            {
+                "enabled": true,
+                "name": "GigabitEthernet3"
+            },
+            {
+                "enabled": false,
+                "name": "GigabitEthernet4"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback100"
+            },
+            {
+                "description": "Created-By-Ansible",
+                "enabled": true,
+                "name": "Loopback99"
+            }
+        ],
+        "l3_interfaces": [
+            {
+                "name": "GigabitEthernet1"
+            },
+            {
+                "name": "GigabitEthernet2"
+            },
+            {
+                "ipv4": [
+                    {
+                        "address": "192.168.60.14/24"
+                    }
+                ],
+                "name": "GigabitEthernet3"
+            },
+            {
+                "name": "GigabitEthernet4"
+            },
+            {
+                "name": "Loopback100"
+            },
+            {
+                "name": "Loopback99"
+            }
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+192.168.60.11              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+192.168.60.12              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+192.168.60.13              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+192.168.60.14              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

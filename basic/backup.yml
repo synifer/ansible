@@ -1,0 +1,20 @@
+---
+- 
+  name: Backup Configs
+  hosts: routers
+  gather_facts: true
+
+  vars:
+    config: show running-config
+
+  tasks:
+    
+    - name: Show running-configuration
+      ios_command:
+        commands: "{{ config }}"
+      register: config
+
+    - name: save running config to ~/ansible/backup
+      copy:
+        content: "{{ config.stdout[0] }}"
+        dest: "~/ansible/backup/running_config_{{ inventory_hostname }}.cfg"

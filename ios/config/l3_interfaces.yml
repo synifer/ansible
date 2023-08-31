@@ -1,0 +1,10 @@
+---
+
+- name: Run cfg commands on router
+  hosts: routers
+
+  tasks:
+
+    - name: configure l3 interface
+      ios_config:
+        src: templates/acl_cfg.txt 

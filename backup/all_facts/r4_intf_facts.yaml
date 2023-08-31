@@ -1,0 +1,46 @@
+GigabitEthernet1:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4: []
+    lineprotocol: down
+    macaddress: 5000.0002.0000
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: administratively down
+    type: CSR vNIC
+GigabitEthernet2:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4: []
+    lineprotocol: down
+    macaddress: 5000.0002.0001
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: administratively down
+    type: CSR vNIC
+GigabitEthernet3:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4:
+    -   address: 192.168.60.14
+        subnet: '24'
+    lineprotocol: up
+    macaddress: 5000.0002.0002
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: up
+    type: CSR vNIC
+GigabitEthernet4:
+    bandwidth: 1000000
+    description: null
+    duplex: Full
+    ipv4: []
+    lineprotocol: down
+    macaddress: 5000.0002.0003
+    mediatype: Virtual
+    mtu: 1500
+    operstatus: administratively down
+    type: CSR vNIC

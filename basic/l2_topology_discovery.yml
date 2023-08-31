@@ -1,0 +1,19 @@
+---
+- 
+  name: Configure CDP/LLDP
+  hosts: routers
+  gather_facts: false
+
+  vars:
+    cdp: cdp run 
+    lldp: lldp run
+
+  tasks:
+    
+    - name: CDP configuration
+      cli_config:
+        config: "{{ cdp }}"
+
+    - name: LLD configuration
+      cli_config:
+        config: "{{ lldp }}"
