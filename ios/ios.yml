@@ -1,0 +1,9 @@
+---
+
+
+
+- name: "IOS >> Gathers Cisco IOS/IOS-XE information"
+  cisco.ios.ios_command:
+    commands: "{{ routing_command_list }}"
+  register: "CLI_OUTPUT"
+

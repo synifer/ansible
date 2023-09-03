@@ -10,9 +10,9 @@
         commands: ping 192.168.60.10 timeout 1
         wait_for:
           - result[0] contains 'Success rate is 100 percent'
-        retries:  2
-        interval: 12
+        retries:  1
+        interval: 2
       register: result_all
 
     - name: debug
-      debug: var=result_all
+      debug: var=result_all.stdout_lines[0][-1]

@@ -1,0 +1,16 @@
+interfaces:
+-   enabled: false
+    name: GigabitEthernet1
+-   enabled: false
+    name: GigabitEthernet2
+-   enabled: true
+    name: GigabitEthernet3
+-   enabled: false
+    name: GigabitEthernet4
+l3_interfaces:
+-   name: GigabitEthernet1
+-   name: GigabitEthernet2
+-   ipv4:
+    -   address: 192.168.60.13/24
+    name: GigabitEthernet3
+-   name: GigabitEthernet4

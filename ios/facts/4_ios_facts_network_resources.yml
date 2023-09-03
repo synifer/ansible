@@ -1,7 +1,7 @@
 ---
 
 - name: Collect IOS facts
-  hosts: 192.168.100.1
+  hosts: r1
 
   tasks:
 

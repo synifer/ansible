@@ -5,6 +5,6 @@
 
   tasks:
 
-    - name: configure l3 interface
+    - name: configure loopbacks
       ios_config:
-        src: templates/acl_cfg.txt 
+        src: ~/ansible/templates/loopback_config.j2 

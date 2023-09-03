@@ -4,8 +4,14 @@
 hostname: r2
 loopback: 0
 loopback_ip: 2.2.2.2
-ospf_ints:
+ospf_area_0:
   - 10.1.1.2
-  - 10.1.4.2
-  - 10.1.5.2
   - 2.2.2.2
+ospf_area_200:
+  - 10.1.1.17
+  - 10.1.1.13
+intf_e1_ip: 10.1.1.17
+intf_e2_ip: 10.1.1.13
+intf_e4_ip: 10.1.1.2
+mask_30: 255.255.255.252
+

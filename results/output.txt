@@ -1,0 +1,1415 @@
+
+PLAY [Collect IOS facts] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [r1]
+ok: [r4]
+ok: [r3]
+ok: [r2]
+
+TASK [Facts] *******************************************************************
+ok: [r2]
+ok: [r3]
+ok: [r4]
+ok: [r1]
+
+TASK [debug] *******************************************************************
+ok: [r1] => 
+  ansible_net_all_ipv4_addresses:
+    ansible_facts:
+      ansible_net_all_ipv4_addresses:
+      - 192.168.60.11
+      - 4.4.4.4
+      ansible_net_all_ipv6_addresses: []
+      ansible_net_api: cliconf
+      ansible_net_config: |-
+        Building configuration...
+  
+        Current configuration : 6394 bytes
+        !
+        ! Last configuration change at 11:49:27 UTC Thu Aug 31 2023 by admin
+        !
+        version 16.11
+        service timestamps debug datetime msec
+        service timestamps log datetime msec
+        service password-encryption
+        service call-home
+        platform qfp utilization monitor load 80
+        no platform punt-keepalive disable-kernel-core
+        platform console serial
+        !
+        hostname R1
+        !
+        boot-start-marker
+        boot-end-marker
+        !
+        !
+        enable secret 9 $9$K81yG82cSTTQ9E$9bwQPESZ3Cz.lQDI7KqQ2L7tfwDtleS57.9IAhVhjDk
+        !
+        aaa new-model
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        aaa session-id common
+        call-home
+         ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+         ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+         contact-email-addr sch-smart-licensing@cisco.com
+         profile "CiscoTAC-1"
+          active
+          destination transport-method http
+          no destination transport-method email
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        no ip domain lookup
+        ip domain name alesta.lab
+        !
+        !
+        !
+        login on-success log
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        subscriber templating
+        !
+        !
+        !
+        !
+        !
+        !
+        multilink bundle-name authenticated
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        crypto pki trustpoint SLA-TrustPoint
+         enrollment pkcs12
+         revocation-check crl
+        !
+        crypto pki trustpoint TP-self-signed-3764411787
+         enrollment selfsigned
+         subject-name cn=IOS-Self-Signed-Certificate-3764411787
+         revocation-check none
+         rsakeypair TP-self-signed-3764411787
+        !
+        !
+        crypto pki certificate chain SLA-TrustPoint
+         certificate ca 01
+          30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+          32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+          6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+          3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+          43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+          526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+          82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+          CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+          1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+          4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+          7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+          68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+          C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+          C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+          DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+          06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+          4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+          03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+          604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+          D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+          467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+          7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+          5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+          80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+          418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+          D697DF7F 28
+                quit
+        crypto pki certificate chain TP-self-signed-3764411787
+         certificate self-signed 01
+          30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+          31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+          69666963 6174652D 33373634 34313137 3837301E 170D3233 30383134 31343036
+          35375A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+          4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 37363434
+          31313738 37308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+          0A028201 0100BD5E 209EB6C0 444B6A38 8118D438 2D39502F 52693115 ADD4816B
+          273CD5B0 E5446D6C 7882CFC9 C3701DC8 1D21063A 03D248FE C0D9CC9A 59A0F651
+          590A0E86 47A72C5E FD0BC33E 42DA556B DE57EC86 66B5818E D1F0563B 72D968C8
+          8D0863F0 1D069EB2 068AF2E3 9726B38B 967F4AB9 016AD2D0 BA751754 33154547
+          3E6B42CD E0301EDA 21159257 040C6CB1 440F2D39 5F03CFDE 300F769A D3C2036A
+          09159953 26BC1B30 0AAF8CAB 83633F80 3D07987D 449D0B7F EBC266A7 7E2699E2
+          DDD269CA 60F0C9A3 5BEF0BE5 9127C0C8 DCCC49A9 E283553A 0352AA6E CFC242FD
+          B8F90633 C4E525D6 C9402991 3E849A85 A1BBD0E2 0C48B8FE C47900D7 9173AD3B
+          C6F9C6B9 B0B30203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+          301F0603 551D2304 18301680 142ED837 6FCB1CB7 4A72F0FB 044CC745 D03C082B
+          27301D06 03551D0E 04160414 2ED8376F CB1CB74A 72F0FB04 4CC745D0 3C082B27
+          300D0609 2A864886 F70D0101 05050003 82010100 82EDCE42 D6B722A7 F0E65978
+          773416EB 0A30219E 53D906A2 894EEC3D 41D366F9 85893504 C778849A B1EB0E1B
+          BC6E1743 127DCEF0 553D04AF E23D525C 5F694178 0412C3BC 81CF01BE EFA3BBA1
+          7DEB7708 1FB78542 26A67DB6 3081DCF2 9C53C7EB EA617834 3CF6DA55 F2D104B8
+          1EF1AE26 16B85655 73D5A447 7A5BA864 CD3119A6 99B1D6E8 091EB6AD 9DA5E78E
+          5CEB9749 4E3B83C5 75B17140 D474366D CAA2256D C6053E74 DC0BBBB6 2C720E52
+          788691BB 424EF1C5 CE5EA205 0C77F8C3 91ABCC30 E0C96918 B2B96E7C 99F0203B
+          7483174C 7992ACB4 8978CCD6 289E244B E5AB182E 7BFE9B1D CF79D21B 4F82F714
+          0B121DB9 A3E2B767 50EBFC4F 8F687C92 FC0DD64F
+                quit
+        !
+        license udi pid CSR1000V sn 9E5A6XHV0U0
+        diagnostic bootup level minimal
+        !
+        spanning-tree extend system-id
+        memory free low-watermark processor 80526
+        !
+        !
+        !
+        username admin privilege 15 password 7 14141B180F0B
+        !
+        redundancy
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        interface Loopback4
+         ip address 4.4.4.4 255.255.255.255
+        !
+        interface GigabitEthernet1
+         no ip address
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet2
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet3
+         ip address 192.168.60.11 255.255.255.0
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet4
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        ip default-gateway 192.168.60.1
+        ip forward-protocol nd
+        no ip http server
+        ip http secure-server
+        ip http client source-interface GigabitEthernet1
+        !
+        ip ssh version 2
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        control-plane
+        !
+        !
+        !
+        !
+        !
+        !
+        line con 0
+         stopbits 1
+        line vty 0 4
+         exec-timeout 60 0
+         logging synchronous
+         transport input ssh
+        !
+        !
+        !
+        !
+        !
+        !
+        end
+      ansible_net_cpu_utilization:
+        core:
+          five_minutes: 0
+          five_seconds: 3
+          five_seconds_interrupt: 0
+          one_minute: 1
+      ansible_net_filesystems:
+      - 'bootflash:'
+      ansible_net_filesystems_info:
+        'bootflash:':
+          spacefree_kb: 6865024.0
+          spacetotal_kb: 7712692.0
+      ansible_net_gather_network_resources: []
+      ansible_net_gather_subset:
+      - config
+      - interfaces
+      - default
+      - hardware
+      ansible_net_hostname: R1
+      ansible_net_image: bootflash:packages.conf
+      ansible_net_interfaces:
+        GigabitEthernet1:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: up
+          macaddress: 5000.0009.0000
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: up
+          type: CSR vNIC
+        GigabitEthernet2:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0009.0001
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet3:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4:
+          - address: 192.168.60.11
+            subnet: '24'
+          lineprotocol: up
+          macaddress: 5000.0009.0002
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: up
+          type: CSR vNIC
+        GigabitEthernet4:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0009.0003
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        Loopback4:
+          bandwidth: 8000000
+          description: null
+          duplex: null
+          ipv4:
+          - address: 4.4.4.4
+            subnet: '32'
+          lineprotocol: up
+          macaddress: null
+          mediatype: null
+          mtu: 1514
+          operstatus: up
+          type: null
+      ansible_net_iostype: IOS-XE
+      ansible_net_memfree_mb: 1824.9638862609863
+      ansible_net_memtotal_mb: 2117.3875885009766
+      ansible_net_model: CSR1000V
+      ansible_net_neighbors: {}
+      ansible_net_operatingmode: controller
+      ansible_net_python_version: 3.10.12
+      ansible_net_serialnum: 9E5A6XHV0U0
+      ansible_net_system: ios
+      ansible_net_version: 16.11.01b
+      ansible_network_resources: {}
+    changed: false
+    failed: false
+ok: [r3] => 
+  ansible_net_all_ipv4_addresses:
+    ansible_facts:
+      ansible_net_all_ipv4_addresses:
+      - 192.168.60.13
+      ansible_net_all_ipv6_addresses: []
+      ansible_net_api: cliconf
+      ansible_net_config: |-
+        Building configuration...
+  
+        Current configuration : 6492 bytes
+        !
+        ! Last configuration change at 14:12:45 UTC Wed Aug 30 2023 by admin
+        !
+        version 16.11
+        service timestamps debug datetime msec
+        service timestamps log datetime msec
+        service password-encryption
+        service call-home
+        platform qfp utilization monitor load 80
+        no platform punt-keepalive disable-kernel-core
+        platform console serial
+        !
+        hostname R3
+        !
+        boot-start-marker
+        boot-end-marker
+        !
+        !
+        enable secret 9 $9$mYB.eg2JuVQzLk$.tUvu180VuJrxqdG9A83rVPHsM5nU6WVDLNtwugHl7E
+        !
+        aaa new-model
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        aaa session-id common
+        call-home
+         ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+         ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+         contact-email-addr sch-smart-licensing@cisco.com
+         profile "CiscoTAC-1"
+          active
+          destination transport-method http
+          no destination transport-method email
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        ip domain name alesta.lab
+        !
+        !
+        !
+        login on-success log
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        subscriber templating
+        !
+        !
+        !
+        !
+        !
+        !
+        multilink bundle-name authenticated
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        crypto pki trustpoint SLA-TrustPoint
+         enrollment pkcs12
+         revocation-check crl
+        !
+        crypto pki trustpoint TP-self-signed-32337368
+         enrollment selfsigned
+         subject-name cn=IOS-Self-Signed-Certificate-32337368
+         revocation-check none
+         rsakeypair TP-self-signed-32337368
+        !
+        !
+        crypto pki certificate chain SLA-TrustPoint
+         certificate ca 01
+          30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+          32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+          6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+          3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+          43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+          526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+          82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+          CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+          1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+          4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+          7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+          68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+          C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+          C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+          DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+          06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+          4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+          03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+          604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+          D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+          467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+          7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+          5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+          80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+          418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+          D697DF7F 28
+                quit
+        crypto pki certificate chain TP-self-signed-32337368
+         certificate self-signed 01
+          3082032C 30820214 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+          2F312D30 2B060355 04031324 494F532D 53656C66 2D536967 6E65642D 43657274
+          69666963 6174652D 33323333 37333638 301E170D 32333038 31343134 30373230
+          5A170D33 30303130 31303030 3030305A 302F312D 302B0603 55040313 24494F53
+          2D53656C 662D5369 676E6564 2D436572 74696669 63617465 2D333233 33373336
+          38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 0A028201
+          0100E6E8 E3FD4BB9 C41A4663 0439888F E83FD963 92955139 F6C89B47 533C45F2
+          59A9E9B5 05A7098E CF6DF98F 013F9AC8 66B9B0B5 17AD3D36 DAB3C4B1 D7E8A7AF
+          0A546484 02943378 592B23BD A75A405A 69ED3828 49863927 0200A28D 5CE79409
+          2C30E404 4AFADE55 1DAD63E8 074E5453 59587B90 5DCB293E EA315AE8 8AF92950
+          3F9840FF AA2907EF F32347B8 55393A9A DD4EBF61 F03CB5C3 83F2BCED 965C0232
+          C3A16F59 696EA5AE 0881533B 9E96F054 3D1D538E 24F55224 8C9DD581 72E30410
+          2C75DD57 9FAB8070 D275A49B AC6C8BFD F44EFBAD E6A0915D A2097AD0 88ECE6DD
+          692856C9 9E4E2C83 0E45F814 8A1FBC83 359DDA3C F53CE8ED 3FA4298E 824D80FD
+          B24D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603
+          551D2304 18301680 14E550D4 4479AC3F B379CF99 F7307CFE C2A6CA45 15301D06
+          03551D0E 04160414 E550D444 79AC3FB3 79CF99F7 307CFEC2 A6CA4515 300D0609
+          2A864886 F70D0101 05050003 82010100 6B03AEB1 DB2AFBDC F2E5581F 1B7F56CA
+          C72F52A0 E482250F 8B22876C B914DEE9 725F8E0D 5AB3313C E2ACACCC E797018C
+          082653FE 8B19A681 206023F5 5252E624 3082B8CC 3ACA9C4F 46661BCE 0A87694E
+          106A6F5A C647BDF6 FA958D21 A8E8E66B 6808D991 ED475623 02FEF31A 5B644F5D
+          9720C4A4 1848D699 21865416 11F955B4 FC020163 4527D02F 8C6DE1D4 57CBF711
+          406538CF ACD36876 CD741DAF 4BC271F4 07998C9B BD4AD31C 3FA4F387 96C36036
+          D772F602 A994D663 B3F8DFA9 244B2BB7 B2AF5986 37096A5E 4F432E91 B6E10058
+          6B355B6B 108B7965 16837096 40EB5BEF FBE9C68A C79AEFB3 BCC9CF07 3208860E
+          0549CCD3 79A989E9 B8D9FABB 7BBFAFF3
+                quit
+        !
+        license udi pid CSR1000V sn 9HGYS0X023O
+        diagnostic bootup level minimal
+        !
+        spanning-tree extend system-id
+        memory free low-watermark processor 80526
+        !
+        !
+        !
+        username admin privilege 15 password 7 13061E010803
+        !
+        redundancy
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        interface GigabitEthernet1
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet2
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet3
+         ip address 192.168.60.13 255.255.255.0
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet4
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        ip default-gateway 192.168.60.1
+        ip forward-protocol nd
+        ip http server
+        ip http authentication local
+        ip http secure-server
+        ip http client source-interface GigabitEthernet3
+        !
+        ip ssh version 2
+        !
+        !
+        ip access-list extended IN_to_OUT
+         permit tcp 10.0.1.0 0.0.0.255 any eq www
+         permit tcp 10.0.1.0 0.0.0.255 any eq 22
+         permit icmp any any
+         deny   ip any any
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        control-plane
+        !
+        !
+        !
+        !
+        !
+        !
+        line con 0
+         stopbits 1
+        line vty 0 4
+         exec-timeout 60 0
+         logging synchronous
+         transport input ssh
+        !
+        !
+        !
+        !
+        !
+        !
+        end
+      ansible_net_cpu_utilization:
+        core:
+          five_minutes: 0
+          five_seconds: 4
+          five_seconds_interrupt: 0
+          one_minute: 1
+      ansible_net_filesystems:
+      - 'bootflash:'
+      ansible_net_filesystems_info:
+        'bootflash:':
+          spacefree_kb: 6865028.0
+          spacetotal_kb: 7712692.0
+      ansible_net_gather_network_resources: []
+      ansible_net_gather_subset:
+      - config
+      - interfaces
+      - default
+      - hardware
+      ansible_net_hostname: R3
+      ansible_net_image: bootflash:packages.conf
+      ansible_net_interfaces:
+        GigabitEthernet1:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0001.0000
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet2:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0001.0001
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet3:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4:
+          - address: 192.168.60.13
+            subnet: '24'
+          lineprotocol: up
+          macaddress: 5000.0001.0002
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: up
+          type: CSR vNIC
+        GigabitEthernet4:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0001.0003
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+      ansible_net_iostype: IOS-XE
+      ansible_net_memfree_mb: 1825.4968299865723
+      ansible_net_memtotal_mb: 2117.3875885009766
+      ansible_net_model: CSR1000V
+      ansible_net_neighbors: {}
+      ansible_net_operatingmode: controller
+      ansible_net_python_version: 3.10.12
+      ansible_net_serialnum: 9HGYS0X023O
+      ansible_net_system: ios
+      ansible_net_version: 16.11.01b
+      ansible_network_resources: {}
+    changed: false
+    failed: false
+ok: [r2] => 
+  ansible_net_all_ipv4_addresses:
+    ansible_facts:
+      ansible_net_all_ipv4_addresses:
+      - 192.168.60.12
+      - 192.168.20.3
+      ansible_net_all_ipv6_addresses: []
+      ansible_net_api: cliconf
+      ansible_net_config: |-
+        Building configuration...
+  
+        Current configuration : 6574 bytes
+        !
+        ! Last configuration change at 04:32:51 UTC Thu Aug 31 2023 by admin
+        !
+        version 16.11
+        service timestamps debug datetime msec
+        service timestamps log datetime msec
+        service password-encryption
+        service call-home
+        platform qfp utilization monitor load 80
+        no platform punt-keepalive disable-kernel-core
+        platform console serial
+        !
+        hostname R2
+        !
+        boot-start-marker
+        boot-end-marker
+        !
+        !
+        enable secret 9 $9$ZLiVAjO5Nv.aZk$T9.GDvfdST.JyjpIHboau6yqyAL0Q.E/pJzLHmYyjr2
+        !
+        aaa new-model
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        aaa session-id common
+        call-home
+         ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+         ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+         contact-email-addr sch-smart-licensing@cisco.com
+         profile "CiscoTAC-1"
+          active
+          destination transport-method http
+          no destination transport-method email
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        ip domain name alesta.lab
+        !
+        !
+        !
+        login on-success log
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        subscriber templating
+        !
+        !
+        !
+        !
+        !
+        !
+        multilink bundle-name authenticated
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        crypto pki trustpoint SLA-TrustPoint
+         enrollment pkcs12
+         revocation-check crl
+        !
+        crypto pki trustpoint TP-self-signed-1662924243
+         enrollment selfsigned
+         subject-name cn=IOS-Self-Signed-Certificate-1662924243
+         revocation-check none
+         rsakeypair TP-self-signed-1662924243
+        !
+        !
+        crypto pki certificate chain SLA-TrustPoint
+         certificate ca 01
+          30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+          32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+          6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+          3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+          43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+          526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+          82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+          CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+          1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+          4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+          7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+          68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+          C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+          C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+          DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+          06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+          4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+          03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+          604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+          D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+          467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+          7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+          5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+          80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+          418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+          D697DF7F 28
+                quit
+        crypto pki certificate chain TP-self-signed-1662924243
+         certificate self-signed 01
+          30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+          31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+          69666963 6174652D 31363632 39323432 3433301E 170D3233 30383134 31343037
+          34395A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+          4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 36363239
+          32343234 33308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+          0A028201 010086D7 4F1FC769 86FC80CB 684DEE1F 2AF85E59 D99CD615 E552804C
+          D0ACDB86 E365BF21 05034B98 3F7E3F12 BEFFAAEB 536E496B D23BEFAE DC938020
+          CF0B80FD 6561A803 EB25928C E1D95AEB AA3ED671 7F475045 04C7C014 907A1126
+          65FD4027 6CA81359 B82F52A6 7375414C B3D80A74 166E4D75 CE88DA08 A9AD23BD
+          E0FC5EB4 65505771 1BE2BD96 20B790D2 B593BFA8 AB31D525 208C49EA D3EC5E27
+          E91ADAF3 39E43723 D57545A4 883AFAF1 DB8F7D62 BC4851F0 9179A2C3 6EB4F91A
+          325C3488 A8E27D5F 63734954 FB3A1E34 7EE63366 DD8E7962 93144061 CD98D129
+          1875E574 C42F7057 D88105C7 C1A9F455 4599F904 40FE28E6 D890D6C2 3F13077B
+          C2C0D415 6C4B0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+          301F0603 551D2304 18301680 1486458B 6624F177 25476394 05D41FBB 1663402F
+          2E301D06 03551D0E 04160414 86458B66 24F17725 47639405 D41FBB16 63402F2E
+          300D0609 2A864886 F70D0101 05050003 82010100 72B06256 8485E9C8 C7584AF8
+          85C30AA5 2DDB8F13 83C034C5 AAC69288 890EF2DC 4080872A F029BC90 30452883
+          B99F9B65 E9DA767C EC48B3CB 70CA0FAE 2137D772 59B2983E 4E2D4D1C E1052F47
+          AEBB527C 50331073 0CCA54F3 7740072C D194F83D 6ED282D4 978C9E5E 702B59DA
+          F47A6196 0B92EF06 7987E9DA A6127CA2 2DC4E39E 63E4E1CF A9FEB897 F41107CC
+          8FE3BA0C 4095E52B 78747892 D23DF186 4083135F 1AFA4908 BC1996B9 8386A6F2
+          ABC00B22 D1825F44 9C2CCFCE 9B78F530 11538C0D 63B2C4A2 9F09B7B4 4041C549
+          35EC7F53 2399A1A1 0118D865 31D4C825 4DD934C1 32309FFC 5E53C261 3B69EBDC
+          1A0AF1D4 B4FB1A97 647448ED 892FB12C 5E387D13
+                quit
+        !
+        license udi pid CSR1000V sn 96CALYGGRX9
+        diagnostic bootup level minimal
+        !
+        spanning-tree extend system-id
+        memory free low-watermark processor 80526
+        !
+        !
+        !
+        username admin privilege 15 password 7 13061E010803
+        !
+        redundancy
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        interface Loopback300
+         ip address 192.168.20.3 255.255.255.255
+        !
+        interface GigabitEthernet1
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet2
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet3
+         ip address 192.168.60.12 255.255.255.0
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet4
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        ip default-gateway 192.168.60.1
+        ip forward-protocol nd
+        ip http server
+        ip http authentication local
+        ip http secure-server
+        ip http client source-interface GigabitEthernet3
+        !
+        ip ssh version 2
+        !
+        !
+        ip access-list extended IN_to_OUT
+         permit tcp 10.0.1.0 0.0.0.255 any eq www
+         permit tcp 10.0.1.0 0.0.0.255 any eq 22
+         permit icmp any any
+         deny   ip any any
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        control-plane
+        !
+        !
+        !
+        !
+        !
+        !
+        line con 0
+         stopbits 1
+        line vty 0 4
+         exec-timeout 60 0
+         logging synchronous
+         transport input ssh
+        !
+        !
+        !
+        !
+        !
+        !
+        end
+      ansible_net_cpu_utilization:
+        core:
+          five_minutes: 0
+          five_seconds: 4
+          five_seconds_interrupt: 0
+          one_minute: 1
+      ansible_net_filesystems:
+      - 'bootflash:'
+      ansible_net_filesystems_info:
+        'bootflash:':
+          spacefree_kb: 6865036.0
+          spacetotal_kb: 7712692.0
+      ansible_net_gather_network_resources: []
+      ansible_net_gather_subset:
+      - config
+      - interfaces
+      - default
+      - hardware
+      ansible_net_hostname: R2
+      ansible_net_image: bootflash:packages.conf
+      ansible_net_interfaces:
+        GigabitEthernet1:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.000a.0000
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet2:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.000a.0001
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet3:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4:
+          - address: 192.168.60.12
+            subnet: '24'
+          lineprotocol: up
+          macaddress: 5000.000a.0002
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: up
+          type: CSR vNIC
+        GigabitEthernet4:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.000a.0003
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        Loopback300:
+          bandwidth: 8000000
+          description: null
+          duplex: null
+          ipv4:
+          - address: 192.168.20.3
+            subnet: '32'
+          lineprotocol: up
+          macaddress: null
+          mediatype: null
+          mtu: 1514
+          operstatus: up
+          type: null
+      ansible_net_iostype: IOS-XE
+      ansible_net_memfree_mb: 1825.4820709228516
+      ansible_net_memtotal_mb: 2117.3875885009766
+      ansible_net_model: CSR1000V
+      ansible_net_neighbors: {}
+      ansible_net_operatingmode: controller
+      ansible_net_python_version: 3.10.12
+      ansible_net_serialnum: 96CALYGGRX9
+      ansible_net_system: ios
+      ansible_net_version: 16.11.01b
+      ansible_network_resources: {}
+    changed: false
+    failed: false
+ok: [r4] => 
+  ansible_net_all_ipv4_addresses:
+    ansible_facts:
+      ansible_net_all_ipv4_addresses:
+      - 192.168.60.14
+      ansible_net_all_ipv6_addresses: []
+      ansible_net_api: cliconf
+      ansible_net_config: |-
+        Building configuration...
+  
+        Current configuration : 6509 bytes
+        !
+        ! Last configuration change at 14:12:45 UTC Wed Aug 30 2023 by admin
+        !
+        version 16.11
+        service timestamps debug datetime msec
+        service timestamps log datetime msec
+        service password-encryption
+        service call-home
+        platform qfp utilization monitor load 80
+        no platform punt-keepalive disable-kernel-core
+        platform console serial
+        !
+        hostname R4
+        !
+        boot-start-marker
+        boot-end-marker
+        !
+        !
+        enable secret 9 $9$bCC58lBTnZ7AZ.$31BHRPqTVfcpCuI0B79Wg4wsnqTQSgDOmzXTWqXpu2Y
+        !
+        aaa new-model
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        aaa session-id common
+        call-home
+         ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+         ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+         contact-email-addr sch-smart-licensing@cisco.com
+         profile "CiscoTAC-1"
+          active
+          destination transport-method http
+          no destination transport-method email
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        ip domain name alesta.lab
+        !
+        !
+        !
+        login on-success log
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        subscriber templating
+        !
+        !
+        !
+        !
+        !
+        !
+        multilink bundle-name authenticated
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        crypto pki trustpoint SLA-TrustPoint
+         enrollment pkcs12
+         revocation-check crl
+        !
+        crypto pki trustpoint TP-self-signed-2547212723
+         enrollment selfsigned
+         subject-name cn=IOS-Self-Signed-Certificate-2547212723
+         revocation-check none
+         rsakeypair TP-self-signed-2547212723
+        !
+        !
+        crypto pki certificate chain SLA-TrustPoint
+         certificate ca 01
+          30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+          32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+          6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+          3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+          43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+          526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+          82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+          CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+          1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+          4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+          7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+          68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+          C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+          C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+          DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+          06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+          4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+          03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+          604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+          D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+          467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+          7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+          5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+          80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+          418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+          D697DF7F 28
+                quit
+        crypto pki certificate chain TP-self-signed-2547212723
+         certificate self-signed 01
+          30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+          31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+          69666963 6174652D 32353437 32313237 3233301E 170D3233 30383134 31343037
+          33315A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+          4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 35343732
+          31323732 33308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+          0A028201 0100C931 3A1C4715 CB1395E5 485579C3 2170BF69 2BD14363 35892886
+          C7086984 37C2071F 88CFCCC2 22B693EB 9956B48A A675937E 1166D6E8 74CAD446
+          AD6A06D6 66563618 B43A8FA8 E8DFF9B7 11AED166 CFD09FBB 3E88C8B2 194ED4D0
+          2918AFFE D33F2E8F 6473A2A5 55EBB3F6 7A9E6AF8 9119290C A8FB2385 4A6C045A
+          8BA5C93D CF6B1F6E C5FA8EA0 0FD7910B E29B0B92 440ED963 B2376D27 CE8EE077
+          DB1F55F3 DCA2038F 5A785A8F 3A63CE17 1C491E59 353F00D1 437D205E F5276CA0
+          A5B9C708 BCA3F787 38EB6035 13238E9C 7C08319F 3C565144 9F4F95B5 96365700
+          1642B980 C338C1B2 B53CA242 6755C501 5C10A5B8 1A6CAB13 A4028DB6 20715A27
+          DA225CCB 7D6D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+          301F0603 551D2304 18301680 14F33722 A5C6F02F AA8CB06C A5EA0B36 E3B013D9
+          07301D06 03551D0E 04160414 F33722A5 C6F02FAA 8CB06CA5 EA0B36E3 B013D907
+          300D0609 2A864886 F70D0101 05050003 82010100 5FEBE398 F0D88594 D1E05BE6
+          9D900F3D 52329289 F7C47329 D2D7666D 5E6A4BBC 87B422E0 797F8D33 1A115CAE
+          77F953B6 6AADB3F1 BF538E2B 9CEC3F33 50CC15A8 A8BA99B5 80C2C2FF 6A7735E9
+          A09D76CF 76F552C0 A6F907A5 1C588E50 5B5DAE51 C908AB2C E4CA8250 93CDCB50
+          58B6BFCC 2B2D6AF4 1BB09AC3 FE43B7D5 F9065EBC F353C8EF 114833E0 0CC764FB
+          489C7AA5 01D99017 70261044 E6CF3E01 B58E745E 1FC733D8 9CD73A31 FFF11052
+          C0E5FD4A A224F8D6 0D78325C 5D745C42 9600D56D CDDB192D 32AFA38B C6A60D67
+          6A3E777A DDC8D9ED 4151EBE0 D444B8AA E625EC98 291212A8 52D3AD06 AD1E344E
+          03101669 87B50186 F781A853 0C2B5904 48DD648B
+                quit
+        !
+        license udi pid CSR1000V sn 9FUCBYA0YEI
+        diagnostic bootup level minimal
+        !
+        spanning-tree extend system-id
+        memory free low-watermark processor 80526
+        !
+        !
+        !
+        username admin privilege 15 password 7 045802150C2E
+        !
+        redundancy
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        interface GigabitEthernet1
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet2
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet3
+         ip address 192.168.60.14 255.255.255.0
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        interface GigabitEthernet4
+         no ip address
+         shutdown
+         negotiation auto
+         no mop enabled
+         no mop sysid
+        !
+        ip default-gateway 192.168.60.1
+        ip forward-protocol nd
+        ip http server
+        ip http authentication local
+        ip http secure-server
+        ip http client source-interface GigabitEthernet3
+        !
+        ip ssh version 2
+        !
+        !
+        ip access-list extended IN_to_OUT
+         permit tcp 10.0.1.0 0.0.0.255 any eq www
+         permit tcp 10.0.1.0 0.0.0.255 any eq 22
+         permit icmp any any
+         deny   ip any any
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        control-plane
+        !
+        !
+        !
+        !
+        !
+        !
+        line con 0
+         stopbits 1
+        line vty 0 4
+         exec-timeout 60 0
+         logging synchronous
+         transport input ssh
+        !
+        !
+        !
+        !
+        !
+        !
+        end
+      ansible_net_cpu_utilization:
+        core:
+          five_minutes: 0
+          five_seconds: 4
+          five_seconds_interrupt: 0
+          one_minute: 1
+      ansible_net_filesystems:
+      - 'bootflash:'
+      ansible_net_filesystems_info:
+        'bootflash:':
+          spacefree_kb: 6865036.0
+          spacetotal_kb: 7712692.0
+      ansible_net_gather_network_resources: []
+      ansible_net_gather_subset:
+      - config
+      - interfaces
+      - default
+      - hardware
+      ansible_net_hostname: R4
+      ansible_net_image: bootflash:packages.conf
+      ansible_net_interfaces:
+        GigabitEthernet1:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0002.0000
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet2:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0002.0001
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+        GigabitEthernet3:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4:
+          - address: 192.168.60.14
+            subnet: '24'
+          lineprotocol: up
+          macaddress: 5000.0002.0002
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: up
+          type: CSR vNIC
+        GigabitEthernet4:
+          bandwidth: 1000000
+          description: null
+          duplex: Full
+          ipv4: []
+          lineprotocol: down
+          macaddress: 5000.0002.0003
+          mediatype: Virtual
+          mtu: 1500
+          operstatus: administratively down
+          type: CSR vNIC
+      ansible_net_iostype: IOS-XE
+      ansible_net_memfree_mb: 1825.491382598877
+      ansible_net_memtotal_mb: 2117.3875885009766
+      ansible_net_model: CSR1000V
+      ansible_net_neighbors: {}
+      ansible_net_operatingmode: controller
+      ansible_net_python_version: 3.10.12
+      ansible_net_serialnum: 9FUCBYA0YEI
+      ansible_net_system: ios
+      ansible_net_version: 16.11.01b
+      ansible_network_resources: {}
+    changed: false
+    failed: false
+
+PLAY RECAP *********************************************************************
+r1                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r3                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r4                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

@@ -11,23 +11,37 @@ ansible_become_pass: cisco
 
 # Path vars
 
+interface_config: ~/ansible/templates/test.j2
 inventory_template: ~/ansible/templates/reports/inventory_report.j2
 inventory_report: ~/ansible/results/html/inventory_report.html
 
 backup_path: "~/ansible/backup/runnning_config_{{inventory_hostname }}.cfg"
 
 
-# Show vars
+# ios vars
 
-config: show running-config
-hostname: show run | in hostname
-interfaces_info: show ip int brief
-ipv6_interface_info: show ipv6 int br
-clock: show clock
-arp: show arp
+inventory_list:
+  - show version
+
+basic_command_list:
+  - "show cdp neighbors"
+  - "show lldp neighbors"
+  - "show ip arp"
+  - "show ip int br"
+
+routing_command_list:
+  - "show ip cef"
+  - "show ip route"
+
+# config: show running-config
+# hostname: show run | in hostname
+# interfaces_info: show ip int brief
+# ipv6_interface_info: show ipv6 int br
+# clock: show clock
+# arp: show arp
 
 # Config vars
 
-run_command: show run
-ntp_config: ntp server 192.168.60.10
-l3_config: interface loopback500
+# run_command: show run
+# ntp_config: ntp server 192.168.60.10
+# l3_config: interface loopback500

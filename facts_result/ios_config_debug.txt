@@ -1,0 +1,252 @@
+Using /home/n9kway/ansible/ansible.cfg as config file
+
+PLAY [Run cfg commands on routers] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [r1]
+ok: [r2]
+ok: [r4]
+ok: [r3]
+
+TASK [Config interface GigabitEthernet2] ***************************************
+ok: [r3] => changed=false
+ok: [r1] => changed=false
+ok: [r4] => changed=false
+ok: [r2] => changed=false
+
+TASK [Config interface GigabitEthernet4] ***************************************
+ok: [r1] => changed=false
+ok: [r4] => changed=false
+ok: [r3] => changed=false
+ok: [r2] => changed=false
+
+TASK [Config interface Loopback] ***********************************************
+ok: [r1] => changed=false
+ok: [r2] => changed=false
+ok: [r3] => changed=false
+ok: [r4] => changed=false
+
+TASK [Config password encryption] **********************************************
+ok: [r4] => changed=false
+ok: [r1] => changed=false
+ok: [r3] => changed=false
+ok: [r2] => changed=false
+
+TASK [Config username] *********************************************************
+changed: [r3] => changed=true 
+  banners: {}
+  commands:
+  - username n9kway privilege 15 password 7 cisco
+  updates:
+  - username n9kway privilege 15 password 7 cisco
+changed: [r1] => changed=true 
+  banners: {}
+  commands:
+  - username n9kway privilege 15 password 7 cisco
+  updates:
+  - username n9kway privilege 15 password 7 cisco
+changed: [r4] => changed=true 
+  banners: {}
+  commands:
+  - username n9kway privilege 15 password 7 cisco
+  updates:
+  - username n9kway privilege 15 password 7 cisco
+changed: [r2] => changed=true 
+  banners: {}
+  commands:
+  - username n9kway privilege 15 password 7 cisco
+  updates:
+  - username n9kway privilege 15 password 7 cisco
+
+TASK [Config QoS policy for shape traffic] *************************************
+ok: [r2] => changed=false
+ok: [r1] => changed=false
+ok: [r4] => changed=false
+ok: [r3] => changed=false
+
+TASK [Configure interface MTU] *************************************************
+changed: [r2] => (item=1) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  item: 1
+  updates:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r4] => (item=1) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  item: 1
+  updates:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r1] => (item=1) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  item: 1
+  updates:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r3] => (item=1) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  item: 1
+  updates:
+  - interface GigabitEthernet 1
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r2] => (item=2) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  item: 2
+  updates:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r1] => (item=2) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  item: 2
+  updates:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r4] => (item=2) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  item: 2
+  updates:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r3] => (item=2) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  item: 2
+  updates:
+  - interface GigabitEthernet 2
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r1] => (item=4) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  item: 4
+  updates:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r2] => (item=4) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  item: 4
+  updates:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r4] => (item=4) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  item: 4
+  updates:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+changed: [r3] => (item=4) => changed=true 
+  ansible_loop_var: item
+  banners: {}
+  commands:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  item: 4
+  updates:
+  - interface GigabitEthernet 4
+  - ip mtu 1500
+  warnings:
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+  - To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if present in the running configuration on device
+
+TASK [Security configuration] **************************************************
+ok: [r3] => changed=false
+ok: [r2] => changed=false
+ok: [r4] => changed=false
+ok: [r1] => changed=false
+
+TASK [Config line vty] *********************************************************
+ok: [r3] => changed=false
+ok: [r2] => changed=false
+ok: [r4] => changed=false
+ok: [r1] => changed=false
+
+TASK [Show config updates] *****************************************************
+skipping: [r1] => 
+  false_condition: cfg.changed
+skipping: [r2] => 
+  false_condition: cfg.changed
+skipping: [r3] => 
+  false_condition: cfg.changed
+skipping: [r4] => 
+  false_condition: cfg.changed
+
+PLAY RECAP *********************************************************************
+r1                         : ok=10   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r2                         : ok=10   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r3                         : ok=10   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+r4                         : ok=10   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

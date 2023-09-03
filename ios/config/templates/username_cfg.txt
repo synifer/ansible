@@ -1,0 +1,1 @@
+username n9kway privilege 15 password 7 cisco

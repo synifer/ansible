@@ -1,11 +1,12 @@
 ---
 
  - name: configure network devices
-   hosts: r1, r2
+   hosts: r4, r3
    gather_facts: false
    
    tasks: 
      
      - name: configure device with config
        cli_config:
-         config: "{{lookup('template', '~/ansible/templates/intf_template.j2')}}"
+         config:
+           src: "{{ interface_config }}"
