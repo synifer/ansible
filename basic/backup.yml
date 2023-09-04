@@ -2,17 +2,20 @@
 - 
   name: Backup Configs
   hosts: routers
-  gather_facts: true
+  gather_facts: yes
 
 
   tasks:
     
-    - name: Show running-configuration
+    - name: Show running configuration
       ios_command:
         commands: "{{ config }}"
-      register: config
 
-    - name: save running config to ~/ansible/backup
+      register: config    
+    - set_fact: time="{{lookup('pipe','date \"+%Y-%m-%d-%H-%M\"')}}"
+
+    - name: Save running configuration
       copy:
         content: "{{ config.stdout[0] }}"
-        dest: "{{ backup_path }}" 
+        dest: ~/ansible/backup/{{ inventory_hostname }}_run_cfg_{{ time }}.cfg
+

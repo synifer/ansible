@@ -1,0 +1,1 @@
+[["Chassis type: CSR1000V", "", "Slot      Type                State                 Insert time (ago) ", "--------- ------------------- --------------------- ----------------- ", "R0        CSR1000V            ok, active            1d00h         ", "F0        CSR1000V            ok, active            1d00h"]]

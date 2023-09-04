@@ -1,0 +1,30 @@
+---
+
+- name: Get interface info from all hosts
+  hosts: r3
+
+  tasks:
+    
+    - name: execute show ip interface brief
+      ios_command:
+        commands:
+          - "{{item}}"
+      
+      with_items:
+           - show run int {{eth1}}
+           - show run int {{eth2}}
+           - "{{clock}}"
+
+      register: output
+
+    - name: print data saved in the variable
+      debug:
+        var: output
+# 
+#     - name: config loopback101 interface
+#       ios_config:
+#         parents: interface loopback101
+#         lines: 
+#           - description test config by ansible
+#           - ip address 1.1.1.101 255.255.255.255
+#           - shutdown 

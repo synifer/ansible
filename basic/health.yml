@@ -1,0 +1,78 @@
+---
+
+- name: IOS Router Health Monitoring
+  hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks: 
+
+    - name: Router Health Monitoring Commands
+      ios_command:
+        commands:
+          - "{{ item }}" 
+
+      with_items:
+        - show platform
+        - show redundancy
+        - show proc cpu | exclude "0%      0%      0%"
+        - show memory sum | in "node|Physical|available"
+        - show ip route summary
+        - show ip ospf neighbor
+        - show bgp all summary | in "Address|^[0-9]+"
+      register: health_mon
+
+    - name: Save Health info to file
+      copy: 
+       content: "{{ health_mon.results[0].stdout_lines }}" 
+       dest: ~/ansible/facts_result/{{ inventory_hostname }}_health_check.txt
+
+    - name: Platform Hardware Check
+      debug:
+        msg: " {{ inventory_hostname }} show_platform indicates card is down"
+      when: '"Down" in health_mon.results[0].stdout[0]'
+
+    - name: Redundancy Check 
+      debug:
+        msg: " {{ inventory_hostname }} show_redundancy indicates card is not present"
+      when: '"NSR not ready since Standby is not Present" in health_mon.results[1].stdout[0]'
+
+    - name: CPU Utilization Check
+      debug:
+        msg:
+          - "{{ inventory_hostname }} CPU Utilization "
+          - "{{ health_mon.results[2].stdout_lines }}"
+
+    - name: Memory Utilization Check
+      debug:
+        msg:
+          - "{{ inventory_hostname }} Memory Utilization: "
+          - "{{ health_mon.results[3].stdout_lines }}"
+
+    - name: Down Interface Check
+      debug:
+        msg: " {{ inventory_hostname }} Interface is Down"
+      when: '"Down" in health_mon.results[4].stdout[0]'
+
+    - name: Route Summary Check
+      debug:
+        msg: " {{ item }}"
+      with_items:
+        - " {{ inventory_hostname }} Route Summary: "
+        - "{{ health_mon.results[5].stdout_lines[0] }}"
+
+    - name: OSPF Neighbor Check
+      debug:
+        msg:
+          - " {{ inventory_hostname }} OSPF Neighbor Summary: "
+          - " {{ health_mon.results[6].stdout_lines }}"
+      when: '"OSPF" in health_mon.results[6].stdout[0]'
+
+#     - name: BGP Neighbor Check
+#       debug:
+#         msg:
+#           - " {{ inventory_hostname }} BGP Sessions Down: "
+#           - " {{ health_mon.results[8].stdout_lines }} "
+#       when: '"Active" in health_mon.results[8].stdout[0]'
+
+       

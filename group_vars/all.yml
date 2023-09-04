@@ -9,13 +9,17 @@ ansible_become_method: enable
 ansible_become_pass: cisco
 
 
+# Time var
+
+time: "{{lookup('pipe,date \"+%Y-%m-%d-%H-%M\"')}}"
+
 # Path vars
 
 interface_config: ~/ansible/templates/test.j2
 inventory_template: ~/ansible/templates/reports/inventory_report.j2
 inventory_report: ~/ansible/results/html/inventory_report.html
 l3_interfaces: ~/ansible/facts_result/{{inventory_hostname}}_l3_intf.json
-backup_path: "~/ansible/backup/runnning_config_{{inventory_hostname }}.cfg"
+backup_path: "~/ansible/backup/{{ inventory_hostname }}_run_cfg.cfg"
 
 
 # ios vars
@@ -33,11 +37,11 @@ routing_command_list:
   - "show ip cef"
   - "show ip route"
 
-# config: show running-config
+config: show running-config
 # hostname: show run | in hostname
 # interfaces_info: show ip int brief
 # ipv6_interface_info: show ipv6 int br
-# clock: show clock
+clock: show clock
 # arp: show arp
 
 # Config vars

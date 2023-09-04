@@ -8,8 +8,12 @@ ospf_area_0:
   - 10.1.1.16
   - 10.1.1.8
   - 10.1.1.20
-ethernet1_ip: 10.1.1.18
-ethernet2_ip: 10.1.1.10
-ethernet4_ip: 10.1.1.22
+eth1: GigabitEthernet 1
+eth2: GigabitEthernet 2
+eth3: GigabitEthernet 3
+eth4: GigabitEthernet 4
+eth1_ip: 10.1.1.18
+eth2_ip: 10.1.1.10
+eth4_ip: 10.1.1.22
 mask_30: 255.255.255.252
 
