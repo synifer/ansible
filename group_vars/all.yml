@@ -14,7 +14,7 @@ ansible_become_pass: cisco
 interface_config: ~/ansible/templates/test.j2
 inventory_template: ~/ansible/templates/reports/inventory_report.j2
 inventory_report: ~/ansible/results/html/inventory_report.html
-
+l3_interfaces: ~/ansible/facts_result/{{inventory_hostname}}_l3_intf.json
 backup_path: "~/ansible/backup/runnning_config_{{inventory_hostname }}.cfg"
 
 

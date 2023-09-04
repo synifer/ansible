@@ -3,25 +3,6 @@ router ospf 1
  ispf
  auto-cost reference-bandwidth 10000
 {% for ip in ospf_area_0 %}
- network {{ ip }} 0.0.0.255 area 0
+ network {{ ip }} 0.0.0.3 area 0
 {% endfor %}
-!
-# {% for ip in ospf_area_100 %}
-#  network {{ ip }} 0.0.0.255 area 100
-# {% endfor %}
-# !
-# {% for ip in ospf_area_200 %}
-#  network {{ ip }} 0.0.0.255 area 200
-# {% endfor %}
-# !
-# router ospf 1
-#  auto-cost reference-bandwidth 10000
-# {% for networks in ospf %}
-#  network {{ networks.network }} area {{ networks.area }}
-# {% endfor %}
-# 
-# 
-# router ospf 1
-# {% for ip in ansible_net_all_ipv4_addresses %}
-#  network {{ ip }} 0.0.0.0 area 0
-# {% endfor %}
+ network {{ loopback_ip }} 0.0.0.0 area 0

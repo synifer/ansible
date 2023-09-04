@@ -1,5 +1,5 @@
 
-interface GigabitEthernet4
+interface GigabitEthernet1
  ip address {{ intf_e4_ip }} {{ mask_30 }}
  description Created by Ansible
 

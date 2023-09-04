@@ -4,7 +4,7 @@
   hosts: 192.168.60.11
 
   vars: 
-    l3_intf: "{{ lookup('file', '~/ansible/output/192.168.60.11_l3_intf.json/') | from_json}}"
+    l3_intf: "{{ lookup('file', '~/ansible/facts_result/r1_l3_intf.json/') | from_json }}"
 
   tasks: 
 

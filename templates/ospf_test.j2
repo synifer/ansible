@@ -1,8 +1,0 @@
-router ospf 1
- router-id {{ loopback_ip }}
- ispf
- auto-cost reference-bandwidth 10000
-{% for ip in ospf_area_100 %}
- network {{ ip }} 0.0.0.3 area 100
-{% endfor %}
- network {{ loopback_ip }} 0.0.0.0 area 100

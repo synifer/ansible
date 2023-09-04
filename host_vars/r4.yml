@@ -2,13 +2,14 @@
 ---
 
 hostname: r4
-loopback: 0
+loopback_id: 0
 loopback_ip: 4.4.4.4
-ospf_area_200:
-  - 10.1.1.18
-  - 10.1.1.10
-outside_intf: GigabitEthernet 1
-intf_e1_ip: 10.1.1.18
-intf_e2_ip: 10.1.1.10
+ospf_area_0:
+  - 10.1.1.16
+  - 10.1.1.8
+  - 10.1.1.20
+ethernet1_ip: 10.1.1.18
+ethernet2_ip: 10.1.1.10
+ethernet4_ip: 10.1.1.22
 mask_30: 255.255.255.252
 

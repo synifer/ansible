@@ -2,14 +2,15 @@
 ---
 
 hostname: r3
-loopback: 0
+loopback_id: 0
 loopback_ip: 3.3.3.3
-ospf_area_100:
-  - 10.1.1.6
-  - 10.1.1.14
-  - 3.3.3.3
-intf_e1_ip: 10.1.1.6
-intf_e2_ip: 10.1.1.14
+ospf_area_0:
+  - 10.1.1.4
+  - 10.1.1.12
+  - 10.1.1.20
+ethernet1: 10.1.1.6
+ethernet2: 10.1.1.14
+ethernet4: 10.1.1.21
 mask_30: 255.255.255.252
 
 

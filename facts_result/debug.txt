@@ -1,0 +1,31 @@
+
+PLAY [Collect IOS facts] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [r2]
+ok: [r4]
+ok: [r3]
+ok: [r1]
+
+TASK [Facts] *******************************************************************
+ok: [r4]
+ok: [r1]
+ok: [r3]
+ok: [r2]
+
+TASK [Show ansible_network_resources] ******************************************
+ok: [r2] => 
+  ansible_network_resources['l3_interfaces']['ipv4']: VARIABLE IS NOT DEFINED!
+ok: [r3] => 
+  ansible_network_resources['l3_interfaces']['ipv4']: VARIABLE IS NOT DEFINED!
+ok: [r1] => 
+  ansible_network_resources['l3_interfaces']['ipv4']: VARIABLE IS NOT DEFINED!
+ok: [r4] => 
+  ansible_network_resources['l3_interfaces']['ipv4']: VARIABLE IS NOT DEFINED!
+
+PLAY RECAP *********************************************************************
+r1                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r2                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r3                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+r4                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

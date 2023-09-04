@@ -1,13 +1,13 @@
 ---
 
 - name: Run cfg commands on routers
-  hosts: r3
+  hosts: routers
 
   tasks:
      
     - name: Config OSPF from src jinja
       ios_config:
-        src: templates/ospf_test.j2
+        src: ~/ansible/templates/ospf_test.j2
 
 
 #     - name: Config Router from src txt
