@@ -1,0 +1,16 @@
+---
+
+ansible_connection: ansible.netcommon.network_cli
+ansible_network_os: cisco.nxos.nxos
+ansible_user: admin
+ansible_password: admin
+
+# Time var
+
+time: "{{lookup('pipe,date \"+%Y-%m-%d-%H-%M\"')}}"
+
+# Path vars
+
+backup_path: "~/ansible/backup/{{ inventory_hostname }}_run_cfg.cfg"
+
+config: show running-config

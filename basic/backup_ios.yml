@@ -17,5 +17,5 @@
     - name: Save running configuration
       copy:
         content: "{{ config.stdout[0] }}"
-        dest: ~/ansible/backup/{{ inventory_hostname }}_run_cfg_{{ time }}.cfg
+        dest: ~/ansible/documentation/ios/backup/{{ inventory_hostname }}_run_cfg_{{ time }}.cfg
 
