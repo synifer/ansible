@@ -1,0 +1,221 @@
+_ansible_facts_gathered: true
+net_all_ipv4_addresses:
+- 10.1.1.6
+- 10.1.1.14
+- 192.168.60.13
+- 3.3.3.3
+net_all_ipv6_addresses: []
+net_api: cliconf
+net_config: "Building configuration...\n\nCurrent configuration : 7258 bytes\n!\n!
+    Last configuration change at 09:35:30 UTC Mon Sep 18 2023\n!\nversion 16.11\nservice
+    timestamps debug datetime msec\nservice timestamps log datetime msec\nservice
+    password-encryption\nservice call-home\nplatform qfp utilization monitor load
+    80\nno platform punt-keepalive disable-kernel-core\nplatform console serial\n!\nhostname
+    R3\n!\nboot-start-marker\nboot-end-marker\n!\n!\nenable secret 9 $9$mYB.eg2JuVQzLk$.tUvu180VuJrxqdG9A83rVPHsM5nU6WVDLNtwugHl7E\n!\naaa
+    new-model\n!\n!\n!\n!\n!\n!\n!\naaa session-id common\ncall-home\n ! If contact
+    email address in call-home is configured as sch-smart-licensing@cisco.com\n !
+    the email address configured in Cisco Smart License Portal will be used as contact
+    email address to send SCH notifications.\n contact-email-addr sch-smart-licensing@cisco.com\n
+    profile \"CiscoTAC-1\"\n  active\n  destination transport-method http\n  no destination
+    transport-method email\n!\n!\n!\n!\n!\n!\n!\nno ip domain lookup\nip domain name
+    alesta.lab\n!\n!\n!\nlogin on-success log\n!\n!\n!\n!\n!\n!\n!\nsubscriber templating\n!
+    \n! \n! \n! \n!\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\ncrypto
+    pki trustpoint SLA-TrustPoint\n enrollment pkcs12\n revocation-check crl\n!\ncrypto
+    pki trustpoint TP-self-signed-32337368\n enrollment selfsigned\n subject-name
+    cn=IOS-Self-Signed-Certificate-32337368\n revocation-check none\n rsakeypair TP-self-signed-32337368\n!\n!\ncrypto
+    pki certificate chain SLA-TrustPoint\n certificate ca 01\n  30820321 30820209
+    A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 \n  32310E30 0C060355 040A1305
+    43697363 6F312030 1E060355 04031317 43697363 \n  6F204C69 63656E73 696E6720 526F6F74
+    20434130 1E170D31 33303533 30313934 \n  3834375A 170D3338 30353330 31393438 34375A30
+    32310E30 0C060355 040A1305 \n  43697363 6F312030 1E060355 04031317 43697363 6F204C69
+    63656E73 696E6720 \n  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382
+    010F0030 \n  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+    \n  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 \n
+    \ 1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE \n  4AA4E80D
+    DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC \n  7390A3EB 2B5436AD
+    C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 \n  68E69491 20F320E7 948E71D7
+    AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 \n  C7479096 B4CB2D62 EA2F505D C7B062A4
+    6811D95B E8250FC4 5D5D5FB8 8F27D191 \n  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069
+    7CBADF8B DF5F4368 95135E44 \n  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F
+    0101FF04 04030201 \n  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604
+    1449DC85 \n  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+    \n  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 \n
+    \ 604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B \n  D98987BF
+    E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 \n  467A3DF4 4D565700
+    6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C \n  7CA7B7E6 C1AF74F6 152E99B7
+    B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B \n  5FB0DA06 B92AFE7F 494E8A9E 07B85737
+    F3A58BE1 1A48A229 C37C1E69 39F08678 \n  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC
+    60E4616A B623CDBD 230E3AFB \n  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE
+    0275156F 719BB2F0 \n  D697DF7F 28\n  \tquit\ncrypto pki certificate chain TP-self-signed-32337368\n
+    certificate self-signed 01\n  3082032C 30820214 A0030201 02020101 300D0609 2A864886
+    F70D0101 05050030 \n  2F312D30 2B060355 04031324 494F532D 53656C66 2D536967 6E65642D
+    43657274 \n  69666963 6174652D 33323333 37333638 301E170D 32333038 31343134 30373230
+    \n  5A170D33 30303130 31303030 3030305A 302F312D 302B0603 55040313 24494F53 \n
+    \ 2D53656C 662D5369 676E6564 2D436572 74696669 63617465 2D333233 33373336 \n  38308201
+    22300D06 092A8648 86F70D01 01010500 0382010F 00308201 0A028201 \n  0100E6E8 E3FD4BB9
+    C41A4663 0439888F E83FD963 92955139 F6C89B47 533C45F2 \n  59A9E9B5 05A7098E CF6DF98F
+    013F9AC8 66B9B0B5 17AD3D36 DAB3C4B1 D7E8A7AF \n  0A546484 02943378 592B23BD A75A405A
+    69ED3828 49863927 0200A28D 5CE79409 \n  2C30E404 4AFADE55 1DAD63E8 074E5453 59587B90
+    5DCB293E EA315AE8 8AF92950 \n  3F9840FF AA2907EF F32347B8 55393A9A DD4EBF61 F03CB5C3
+    83F2BCED 965C0232 \n  C3A16F59 696EA5AE 0881533B 9E96F054 3D1D538E 24F55224 8C9DD581
+    72E30410 \n  2C75DD57 9FAB8070 D275A49B AC6C8BFD F44EFBAD E6A0915D A2097AD0 88ECE6DD
+    \n  692856C9 9E4E2C83 0E45F814 8A1FBC83 359DDA3C F53CE8ED 3FA4298E 824D80FD \n
+    \ B24D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 \n  551D2304
+    18301680 14E550D4 4479AC3F B379CF99 F7307CFE C2A6CA45 15301D06 \n  03551D0E 04160414
+    E550D444 79AC3FB3 79CF99F7 307CFEC2 A6CA4515 300D0609 \n  2A864886 F70D0101 05050003
+    82010100 6B03AEB1 DB2AFBDC F2E5581F 1B7F56CA \n  C72F52A0 E482250F 8B22876C B914DEE9
+    725F8E0D 5AB3313C E2ACACCC E797018C \n  082653FE 8B19A681 206023F5 5252E624 3082B8CC
+    3ACA9C4F 46661BCE 0A87694E \n  106A6F5A C647BDF6 FA958D21 A8E8E66B 6808D991 ED475623
+    02FEF31A 5B644F5D \n  9720C4A4 1848D699 21865416 11F955B4 FC020163 4527D02F 8C6DE1D4
+    57CBF711 \n  406538CF ACD36876 CD741DAF 4BC271F4 07998C9B BD4AD31C 3FA4F387 96C36036
+    \n  D772F602 A994D663 B3F8DFA9 244B2BB7 B2AF5986 37096A5E 4F432E91 B6E10058 \n
+    \ 6B355B6B 108B7965 16837096 40EB5BEF FBE9C68A C79AEFB3 BCC9CF07 3208860E \n  0549CCD3
+    79A989E9 B8D9FABB 7BBFAFF3\n  \tquit\n!\nlicense udi pid CSR1000V sn 9HGYS0X023O\ndiagnostic
+    bootup level minimal\n!\nspanning-tree extend system-id\nmemory free low-watermark
+    processor 80526\n!\n!\n!\nusername admin privilege 15 password 7 13061E010803\nusername
+    n9kway privilege 15 secret 9 $9$iBP/UExLTJ1IsE$/Wp0EstzluznngPNPeqQj92yP7tVyPMdGtjBOkd7H26\n!\nredundancy\n!\n!\n!\n!\n!\n!\n!\npolicy-map
+    OUT_QOS\n class class-default\n  shape average 1000000000 100000000  \n!\n! \n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!
+    \n! \n!\n!\ninterface Loopback0\n ip address 3.3.3.3 255.255.255.255\n!\ninterface
+    GigabitEthernet1\n description Created by Ansible\n ip address 10.1.1.6 255.255.255.252\n
+    negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet2\n
+    description Created by Ansible\n ip address 10.1.1.14 255.255.255.252\n ip access-group
+    IN_TO_OUT in\n negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface
+    GigabitEthernet3\n ip address 192.168.60.13 255.255.255.0\n negotiation auto\n
+    no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet4\n description Configured
+    by Ansible\n no ip address\n negotiation auto\n no mop enabled\n no mop sysid\n!\nrouter
+    ospf 1\n router-id 3.3.3.3\n auto-cost reference-bandwidth 10000\n network 3.3.3.3
+    0.0.0.0 area 100\n network 10.1.1.4 0.0.0.3 area 100\n network 10.1.1.12 0.0.0.3
+    area 100\n!\nip default-gateway 192.168.60.1\nip forward-protocol nd\nno ip http
+    server\nip http authentication local\nno ip http secure-server\nip http client
+    source-interface GigabitEthernet3\n!\nip ssh version 2\n!\n!\nip access-list extended
+    IN_TO_OUT\n permit tcp 10.0.1.0 0.0.0.255 any eq www\n permit tcp 10.0.1.0 0.0.0.255
+    any eq 22\n permit icmp any any\nip access-list extended IN_to_OUT\n permit tcp
+    10.0.1.0 0.0.0.255 any eq www\n permit tcp 10.0.1.0 0.0.0.255 any eq 22\n permit
+    icmp any any\n deny   ip any any\n!\n!\n!\n!\n!\n!\n!\ncontrol-plane\n!\n!\n!\n!\n!\n!\nline
+    con 0\n stopbits 1\nline vty 0 4\n exec-timeout 60 0\n logging synchronous\n transport
+    input ssh\n!\nntp server 192.168.60.1\nntp server 192.168.60.10\n!\n!\n!\n!\n!\nend"
+net_cpu_utilization:
+    core:
+        five_minutes: 0
+        five_seconds: 5
+        five_seconds_interrupt: 0
+        one_minute: 1
+net_filesystems:
+- 'bootflash:'
+net_filesystems_info:
+    'bootflash:':
+        spacefree_kb: 6865064.0
+        spacetotal_kb: 7712692.0
+net_gather_network_resources:
+- l3_interfaces
+- interfaces
+net_gather_subset:
+- config
+- default
+- interfaces
+- hardware
+net_hostname: R3
+net_image: bootflash:packages.conf
+net_interfaces:
+    GigabitEthernet1:
+        bandwidth: 1000000
+        description: Created by Ansible
+        duplex: Full
+        ipv4:
+        -   address: 10.1.1.6
+            subnet: '30'
+        lineprotocol: up
+        macaddress: 5000.0001.0000
+        mediatype: Virtual
+        mtu: 1500
+        operstatus: up
+        type: CSR vNIC
+    GigabitEthernet2:
+        bandwidth: 1000000
+        description: Created by Ansible
+        duplex: Full
+        ipv4:
+        -   address: 10.1.1.14
+            subnet: '30'
+        lineprotocol: up
+        macaddress: 5000.0001.0001
+        mediatype: Virtual
+        mtu: 1500
+        operstatus: up
+        type: CSR vNIC
+    GigabitEthernet3:
+        bandwidth: 1000000
+        description: null
+        duplex: Full
+        ipv4:
+        -   address: 192.168.60.13
+            subnet: '24'
+        lineprotocol: up
+        macaddress: 5000.0001.0002
+        mediatype: Virtual
+        mtu: 1500
+        operstatus: up
+        type: CSR vNIC
+    GigabitEthernet4:
+        bandwidth: 1000000
+        description: Configured by Ansible
+        duplex: Full
+        ipv4: []
+        lineprotocol: up
+        macaddress: 5000.0001.0003
+        mediatype: Virtual
+        mtu: 1500
+        operstatus: up
+        type: CSR vNIC
+    Loopback0:
+        bandwidth: 8000000
+        description: null
+        duplex: null
+        ipv4:
+        -   address: 3.3.3.3
+            subnet: '32'
+        lineprotocol: up
+        macaddress: null
+        mediatype: null
+        mtu: 1514
+        operstatus: up
+        type: null
+net_iostype: IOS-XE
+net_memfree_mb: 1843.437328338623
+net_memtotal_mb: 2117.3875885009766
+net_model: CSR1000V
+net_neighbors: {}
+net_operatingmode: controller
+net_python_version: 3.10.12
+net_serialnum: 9HGYS0X023O
+net_system: ios
+net_version: 16.11.01b
+network_resources:
+    interfaces:
+    -   description: Created by Ansible
+        enabled: true
+        name: GigabitEthernet1
+    -   description: Created by Ansible
+        enabled: true
+        name: GigabitEthernet2
+    -   enabled: true
+        name: GigabitEthernet3
+    -   description: Configured by Ansible
+        enabled: true
+        name: GigabitEthernet4
+    -   enabled: true
+        name: Loopback0
+    l3_interfaces:
+    -   ipv4:
+        -   address: 10.1.1.6/30
+        name: GigabitEthernet1
+    -   ipv4:
+        -   address: 10.1.1.14/30
+        name: GigabitEthernet2
+    -   ipv4:
+        -   address: 192.168.60.13/24
+        name: GigabitEthernet3
+    -   name: GigabitEthernet4
+    -   ipv4:
+        -   address: 3.3.3.3/32
+        name: Loopback0

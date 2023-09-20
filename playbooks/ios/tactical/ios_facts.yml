@@ -1,0 +1,65 @@
+---
+
+- name: Collect IOS facts
+  hosts: routers 
+
+  tasks:
+
+    - name: Facts
+      ios_facts:
+        gather_subset: all
+        #gather_subset: interfaces
+        #gather_subset: min
+        gather_network_resources:
+          - interfaces
+          - l3_interfaces
+        #register: result_all
+        #register:  ansible_net_serialnum
+
+#     - name: create dir 
+#       file:
+#         path: ./facts_result/
+#         state: directory
+#         mode: 0755 
+
+#     - name: debug serialnum
+#       debug: var=ansible_net_serialnum
+#     - name: debug ipv4 addresses
+#       debug: var=ansible_net_interfaces['GigabitEthernet3']['ipv4']
+#     - name: debug all ipv4 addresses
+#       debug: var=ansible_net_all_ipv4_addresses[0]
+
+    - name: Copy facts to files
+      copy: 
+        content: "{{ ansible_facts | to_nice_yaml }}"
+        dest: "documentation/ios/Tactical_Playbook/{{inventory_hostname}}_facts.yaml"
+
+
+
+#     - name: Copy facts to files
+#       copy: 
+#         content: "{{ ansible_network_resources | to_nice_yaml }}"
+#         dest: "facts_result/{{inventory_hostname}}_facts.yaml"
+#     
+#     - name: Facts about interfaces
+#       copy: 
+#          content: "{{ ansible_net_interfaces['GigabitEthernet3'] | to_nice_yaml}}"
+#          dest: "facts_result/{{inventory_hostname}}_intf_facts.yaml"
+# 
+# 
+#     - name: Facts about interfaces
+#       copy: 
+#         content: "{{ ansible_net_interfaces['GigabitEthernet3']['ipv4'] | to_nice_json}}"
+#         dest: "facts_result/{{inventory_hostname}}_intf_facts.json"
+
+
+# Reports
+
+#     - name: Create HTML report
+#       template:
+#         src: "{{ inventory_template }}"
+#         dest: "{{ inventory_report }}"
+#       delegate_to: localhost
+#       run_once: true
+          
+          
