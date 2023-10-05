@@ -1,0 +1,21 @@
+---
+
+- name: Run show commands on routers
+  hosts: switches
+
+  tasks:
+
+    - name: run show commands
+      cisco.nxos.nxos_command:
+        commands:
+          - show running-config
+  
+      register: show_run_output
+
+    - name: Debug registered var
+      debug: var=show_run_output
+        #debug: var=show_result.stdout_lines[1]
+    - name: Save Configuration
+      copy: 
+        content: "{{ show_run_output.stdout[0] }}"
+        dest: ~/ansible/documentation/nxos/backup/{{inventory_hostname}}_running_config.txt

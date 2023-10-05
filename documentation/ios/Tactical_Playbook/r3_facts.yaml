@@ -97,9 +97,9 @@ net_config: "Building configuration...\n\nCurrent configuration : 7258 bytes\n!\
 net_cpu_utilization:
     core:
         five_minutes: 0
-        five_seconds: 5
+        five_seconds: 1
         five_seconds_interrupt: 0
-        one_minute: 1
+        one_minute: 0
 net_filesystems:
 - 'bootflash:'
 net_filesystems_info:
@@ -107,13 +107,13 @@ net_filesystems_info:
         spacefree_kb: 6865064.0
         spacetotal_kb: 7712692.0
 net_gather_network_resources:
-- l3_interfaces
 - interfaces
+- l3_interfaces
 net_gather_subset:
+- hardware
+- interfaces
 - config
 - default
-- interfaces
-- hardware
 net_hostname: R3
 net_image: bootflash:packages.conf
 net_interfaces:
@@ -181,7 +181,7 @@ net_interfaces:
         operstatus: up
         type: null
 net_iostype: IOS-XE
-net_memfree_mb: 1843.437328338623
+net_memfree_mb: 1843.4411010742188
 net_memtotal_mb: 2117.3875885009766
 net_model: CSR1000V
 net_neighbors: {}

@@ -1,0 +1,549 @@
+_ansible_facts_gathered: true
+net_all_ipv4_addresses:
+- 192.168.60.16
+net_all_ipv6_addresses: []
+net_api: cliconf
+net_gather_network_resources: []
+net_gather_subset:
+- default
+- interfaces
+net_hostname: IPN2
+net_image: bootflash:///nxos.9.3.9.bin
+net_interfaces:
+    Ethernet1/1:
+        bandwidth: '1000000'
+        description: IPN1<-->IPN3 L3
+        duplex: full
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: 1000 Mb/s
+        state: up
+        type: 100/1000/10000 Ethernet
+    Ethernet1/10:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/11:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/12:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/13:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/14:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/15:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/16:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/17:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/18:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/19:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/2:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/20:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/21:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/22:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/23:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/24:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/25:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/26:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/27:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/28:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/29:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/3:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/30:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/31:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/32:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/33:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/34:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/35:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/36:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/37:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/38:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/39:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/4:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/40:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/41:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/42:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/43:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/44:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/45:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/46:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/47:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/48:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/49:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/5:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/50:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/51:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/52:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/53:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/54:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/55:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/56:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/57:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/58:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/59:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/6:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/60:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/61:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/62:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/63:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/64:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/7:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/8:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    Ethernet1/9:
+        bandwidth: '10000000'
+        duplex: auto
+        macaddress: 5004.0000.1b08
+        mtu: '1500'
+        speed: auto-speed
+        state: down
+        type: 100/1000/10000 Ethernet
+    mgmt0:
+        bandwidth: '65535000'
+        duplex: unknown enum:<0>
+        ipv4:
+            address: 192.168.60.16
+            masklen: '24'
+        macaddress: 5000.0004.0000
+        mtu: '1500'
+        speed: unknown enum:<65535>
+        state: up
+        type: Ethernet
+net_license_hostid: 99H2NJ2Z2EL
+net_model: Nexus9000 C9300v Chassis
+net_neighbors:
+    mgmt0:
+    -   host: IPN1(9TILR02XTWY)
+        port: mgmt0
+        sysname: IPN1(9TILR02XTWY)
+net_platform: N9K-C9300v
+net_python_version: 3.10.12
+net_serialnum: 9K3HFB3VV8I
+net_system: nxos
+net_version: 9.3(9)
+network_resources: {}

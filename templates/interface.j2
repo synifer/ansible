@@ -1,22 +1,21 @@
 {# interface Configurations and Operations #}
 {# funtion: configure interface #}
-{# param: interface json object #}
+{# param: interface yaml object #}
 
-{% macro config_interface (interface) %}
-interface {{ interface.name }}
-{% if interface.ip is defined %}
- ip address {{ interface.ip }}
-{% endif %}
-{% if interface.mpls is defined %}
- mpls {{ interface.mpls }}
-{% endif %}
-{% if interface.bw is defined %}
- bandwidth {{ interface.bw }}
-{% endif %}
-{% if interface.enable is undefined or interface.enable %}
- no shutdown
-{% else %}
- shutdown
-{% endif %}
-!
-{%- endmacro %}
+
+hostname {{ net_hostname }}
+
+{% for hostname, interfaces in net_interfaces.items() %}
+hostname {{hostname}}
+
+{% for interface, config in interfaces.items() %}
+interface {{ interface }}
+ description {{ config.description }}
+ ip address {{ config.ipv4.address }}/{{ config.ipv4.masklen }}
+{% endfor %}
+
+{% endfor %}
+
+
+
+

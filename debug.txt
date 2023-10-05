@@ -1,0 +1,190 @@
+ansible-playbook [core 2.15.2]
+  config file = /home/n9kway/ansible/ansible.cfg
+  configured module search path = ['/home/n9kway/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/n9kway/venv/ansible/lib/python3.10/site-packages/ansible
+  ansible collection location = /home/n9kway/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/n9kway/venv/ansible/bin/ansible-playbook
+  python version = 3.10.12 (main, Jun 11 2023, 05:26:28) [GCC 11.4.0] (/home/n9kway/venv/ansible/bin/python)
+  jinja version = 3.1.2
+  libyaml = True
+Using /home/n9kway/ansible/ansible.cfg as config file
+host_list declined parsing /home/n9kway/ansible/hosts.ini as it did not pass its verify_file() method
+script declined parsing /home/n9kway/ansible/hosts.ini as it did not pass its verify_file() method
+auto declined parsing /home/n9kway/ansible/hosts.ini as it did not pass its verify_file() method
+yaml declined parsing /home/n9kway/ansible/hosts.ini as it did not pass its verify_file() method
+Parsed /home/n9kway/ansible/hosts.ini inventory source with ini plugin
+redirecting (type: action) cisco.nxos.nxos_facts to cisco.nxos.nxos
+redirecting (type: callback) ansible.builtin.yaml to community.general.yaml
+redirecting (type: callback) ansible.builtin.yaml to community.general.yaml
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: facts_nxos.yml *******************************************************
+1 plays in playbooks/nxos/tactical/facts_nxos.yml
+
+PLAY [Collect NXOS facts] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+task path: /home/n9kway/ansible/playbooks/nxos/tactical/facts_nxos.yml:3
+redirecting (type: become) ansible.builtin.enable to ansible.netcommon.enable
+<192.168.60.15> ESTABLISH LOCAL CONNECTION FOR USER: n9kway
+<192.168.60.15> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q `"&& mkdir "` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790 `" && echo ansible-tmp-1695280573.9463308-117793-127589956660790="` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790 `" ) && sleep 0'
+Using module file /home/n9kway/.ansible/collections/ansible_collections/cisco/nxos/plugins/modules/nxos_facts.py
+<192.168.60.15> PUT /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/tmp7hcf_p9q TO /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790/AnsiballZ_nxos_facts.py
+<192.168.60.15> EXEC /bin/sh -c 'chmod u+x /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790/ /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790/AnsiballZ_nxos_facts.py && sleep 0'
+<192.168.60.15> EXEC /bin/sh -c '/home/n9kway/venv/ansible/bin/python /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790/AnsiballZ_nxos_facts.py && sleep 0'
+<192.168.60.15> EXEC /bin/sh -c 'rm -f -r /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280573.9463308-117793-127589956660790/ > /dev/null 2>&1 && sleep 0'
+ok: [ipn1]
+redirecting (type: action) cisco.nxos.nxos_facts to cisco.nxos.nxos
+
+TASK [Gather only the interfaces resource facts and no legacy facts] ***********
+task path: /home/n9kway/ansible/playbooks/nxos/tactical/facts_nxos.yml:17
+redirecting (type: become) ansible.builtin.enable to ansible.netcommon.enable
+redirecting (type: action) cisco.nxos.nxos_facts to cisco.nxos.nxos
+redirecting (type: action) cisco.nxos.nxos_facts to cisco.nxos.nxos
+ok: [ipn1] => changed=false 
+  ansible_facts:
+    ansible_net_gather_network_resources:
+    - interfaces
+    ansible_net_gather_subset: []
+    ansible_network_resources:
+      interfaces:
+      - name: Ethernet1/1
+      - name: Ethernet1/2
+      - name: Ethernet1/3
+      - name: Ethernet1/4
+      - name: Ethernet1/5
+      - name: Ethernet1/6
+      - name: Ethernet1/7
+      - name: Ethernet1/8
+      - name: Ethernet1/9
+      - name: Ethernet1/10
+      - name: Ethernet1/11
+      - name: Ethernet1/12
+      - name: Ethernet1/13
+      - name: Ethernet1/14
+      - name: Ethernet1/15
+      - name: Ethernet1/16
+      - name: Ethernet1/17
+      - name: Ethernet1/18
+      - name: Ethernet1/19
+      - name: Ethernet1/20
+      - name: Ethernet1/21
+      - name: Ethernet1/22
+      - name: Ethernet1/23
+      - name: Ethernet1/24
+      - name: Ethernet1/25
+      - name: Ethernet1/26
+      - name: Ethernet1/27
+      - name: Ethernet1/28
+      - name: Ethernet1/29
+      - name: Ethernet1/30
+      - name: Ethernet1/31
+      - name: Ethernet1/32
+      - name: Ethernet1/33
+      - name: Ethernet1/34
+      - name: Ethernet1/35
+      - name: Ethernet1/36
+      - name: Ethernet1/37
+      - name: Ethernet1/38
+      - name: Ethernet1/39
+      - name: Ethernet1/40
+      - name: Ethernet1/41
+      - name: Ethernet1/42
+      - name: Ethernet1/43
+      - name: Ethernet1/44
+      - name: Ethernet1/45
+      - name: Ethernet1/46
+      - name: Ethernet1/47
+      - name: Ethernet1/48
+      - name: Ethernet1/49
+      - name: Ethernet1/50
+      - name: Ethernet1/51
+      - name: Ethernet1/52
+      - name: Ethernet1/53
+      - name: Ethernet1/54
+      - name: Ethernet1/55
+      - name: Ethernet1/56
+      - name: Ethernet1/57
+      - name: Ethernet1/58
+      - name: Ethernet1/59
+      - name: Ethernet1/60
+      - name: Ethernet1/61
+      - name: Ethernet1/62
+      - name: Ethernet1/63
+      - name: Ethernet1/64
+      - name: mgmt0
+  invocation:
+    module_args:
+      available_network_resources: false
+      gather_network_resources:
+      - interfaces
+      gather_subset:
+      - '!all'
+      - '!min'
+
+TASK [Show Network Resources] **************************************************
+task path: /home/n9kway/ansible/playbooks/nxos/tactical/facts_nxos.yml:24
+redirecting (type: become) ansible.builtin.enable to ansible.netcommon.enable
+ok: [ipn1] => 
+  ansible_net_interfaces: 'VARIABLE IS NOT DEFINED!: ''ansible_net_interfaces'' is undefined. ''ansible_net_interfaces'' is undefined'
+
+TASK [Copy facts to files] *****************************************************
+task path: /home/n9kway/ansible/playbooks/nxos/tactical/facts_nxos.yml:27
+redirecting (type: become) ansible.builtin.enable to ansible.netcommon.enable
+<192.168.60.15> ESTABLISH LOCAL CONNECTION FOR USER: n9kway
+<192.168.60.15> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q `"&& mkdir "` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740 `" && echo ansible-tmp-1695280581.7731733-117829-92212256827740="` echo /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740 `" ) && sleep 0'
+Using module file /home/n9kway/venv/ansible/lib/python3.10/site-packages/ansible/modules/stat.py
+<192.168.60.15> PUT /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/tmpk0w_t_hj TO /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_stat.py
+<192.168.60.15> EXEC /bin/sh -c 'chmod u+x /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/ /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_stat.py && sleep 0'
+<192.168.60.15> EXEC /bin/sh -c '/home/n9kway/venv/ansible/bin/python /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_stat.py && sleep 0'
+Using module file /home/n9kway/venv/ansible/lib/python3.10/site-packages/ansible/modules/file.py
+<192.168.60.15> PUT /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/tmpl1mja2d7 TO /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_file.py
+<192.168.60.15> EXEC /bin/sh -c 'chmod u+x /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/ /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_file.py && sleep 0'
+<192.168.60.15> EXEC /bin/sh -c '/home/n9kway/venv/ansible/bin/python /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/AnsiballZ_file.py && sleep 0'
+<192.168.60.15> EXEC /bin/sh -c 'rm -f -r /home/n9kway/.ansible/tmp/ansible-local-117789eeek802q/ansible-tmp-1695280581.7731733-117829-92212256827740/ > /dev/null 2>&1 && sleep 0'
+ok: [ipn1] => changed=false 
+  checksum: 03b482bb9f1204427affce3b7b198715591b47d2
+  dest: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+  diff:
+    after:
+      path: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+    before:
+      path: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+  gid: 1000
+  group: n9kway
+  invocation:
+    module_args:
+      _diff_peek: null
+      _original_basename: tmpdgo5xi18
+      access_time: null
+      access_time_format: '%Y%m%d%H%M.%S'
+      attributes: null
+      dest: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+      follow: true
+      force: false
+      group: null
+      mode: null
+      modification_time: null
+      modification_time_format: '%Y%m%d%H%M.%S'
+      owner: null
+      path: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+      recurse: false
+      selevel: null
+      serole: null
+      setype: null
+      seuser: null
+      src: null
+      state: file
+      unsafe_writes: false
+  mode: '0664'
+  owner: n9kway
+  path: documentation/nxos/Tactical_Playbook/test_ipn1_facts.yaml
+  size: 2129
+  state: file
+  uid: 1000
+
+PLAY RECAP *********************************************************************
+ipn1                       : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

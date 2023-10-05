@@ -1,0 +1,61 @@
+---
+
+- name: Collect NXOS facts
+  hosts: switches
+
+  tasks:
+
+     - name: Gather all legacy facts
+       cisco.nxos.nxos_facts:
+         gather_subset: all
+
+     - name: Show Ansible_net_neighbors
+       debug: var=ansible_net_neighbors
+#     - name: Gather only config and default facts
+#       cisco.nxos.nxos_facts:
+#         gather_subset:
+#           - config
+#     - name: Gather only the interfaces resource facts and no legacy facts
+#       cisco.nxos.nxos_facts:
+#         gather_subset: 
+#          - '!all'
+#          - '!min'
+#         gather_network_resources:
+#           - interfaces
+#     - name: Show Network Resources
+#       debug: var=ansible_net_interfaces
+
+     - name: Copy facts to files
+       copy: 
+         content: "{{ ansible_facts | to_nice_yaml }}"
+         dest: "documentation/nxos/Tactical_Playbook/test_{{inventory_hostname}}_facts.yaml"
+
+
+
+#     - name: Copy facts to files
+#       copy: 
+#         content: "{{ ansible_network_resources | to_nice_yaml }}"
+#         dest: "facts_result/{{inventory_hostname}}_facts.yaml"
+#     
+#     - name: Facts about interfaces
+#       copy: 
+#          content: "{{ ansible_net_interfaces['GigabitEthernet3'] | to_nice_yaml}}"
+#          dest: "facts_result/{{inventory_hostname}}_intf_facts.yaml"
+# 
+# 
+#     - name: Facts about interfaces
+#       copy: 
+#         content: "{{ ansible_net_interfaces['GigabitEthernet3']['ipv4'] | to_nice_json}}"
+#         dest: "facts_result/{{inventory_hostname}}_intf_facts.json"
+
+
+# Reports
+
+#     - name: Create HTML report
+#       template:
+#         src: "{{ inventory_template }}"
+#         dest: "{{ inventory_report }}"
+#       delegate_to: localhost
+#       run_once: true
+          
+          

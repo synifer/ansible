@@ -1,0 +1,30 @@
+hostname IPN1
+!
+interface Loopback0
+ description EIGRP loopback
+ ip address 11.11.11.11/32
+ !
+interface Ethernet1/1
+ description IPN1 <--> IPN3 
+ ip address 10.21.1.1/29
+ no shutdow
+!
+interface Ethernet1/2
+ description IPN1 <--> R2
+ ip address 10.22.1.1/29
+ no shutdown
+!
+interface Ethernet1/3
+ description IPN1 <--> IPN2
+ ip address 10.21.5.1/29
+ no shutdown
+!
+interface Ethernet1/4
+ description IPN1 <--> R3
+ ip address 10.22.2.1/29
+ no shutdown
+!
+interface Ethernet1/5
+ description IPN1 <--> IPN4
+ ip address 10.21.2.1/29
+ no shutdown

@@ -1,0 +1,32 @@
+net_hostname: IPN2
+net_interfaces:
+    loopback0:
+      ipv4:
+          address: 12.12.12.12
+          masklen: '32'
+    Ethernet1/1:
+        description: IPN2 <--> IPN4
+        ipv4:
+            address: 10.21.4.2
+            masklen: '29'
+    Ethernet1/2:
+        description: IPN2 <--> R1
+        ipv4:
+          address: 10.22.3.2
+          masklen: '29'
+    Ethernet1/3:
+        description: IPN2 <--> IPN1
+        ipv4: 
+            address: 10.21.5.2
+            masklen: '29' 
+    Ethernet1/4:
+        description: IPN2 <--> R3 
+        ipv4:
+            address: 10.22.4.2
+            masklen: '29'
+    Ethernet1/5:
+        description: IPN2 <--> IPN3
+        ipv4: 
+            address: 10.21.3.2
+            masklen: '29'
+

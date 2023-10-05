@@ -1,0 +1,40 @@
+---
+
+- name: OSPF Neighbors
+  hosts: switches
+
+  tasks: 
+
+    - name: run show ospf neighbors
+      cisco.nxos.nxos_command:
+        commands: 
+          - command: show ip ospf neighbor
+            #output: json
+              # register: ospfneighbor_result
+#     - set_fact: ospfneighbor={{ ospfneighbor_result | to_nice_yaml }}
+#     - name: create log file for all devices
+#       file: path=~/ansible/documentation/nxos/Recon_Playbook/{{ inventory_hostname }}.all.txt state=touch
+#       check_mode: no
+#     - name: log to file for all devices
+#       lineinfile: 
+#         insertafter: EOF
+#         path: "{{ path }}"
+#         line: "{{ item }}"
+#         with_items:
+#           - "#####{{ inventory_hostname }}#####"
+#           - "{{ ospfneighbor }}"
+#         check_mode: no
+#     - name: create log file for each device
+# 
+#       file: "{{ path }}"
+#       check_mode: no
+#     - name: log to file for individual device
+#       lineinfile: 
+#         insertafter: EOF
+#         path: ~/ansible/documentation/nxos/Recon_Playbook/{{ inventory_hostname }}.txt
+#         line: "{{item}}"
+#       with_items: 
+#         - "#####{{ inventory_hostname }}#####"
+#         - "{{ ospfneighbor }}"
+#       check_mode: no
+

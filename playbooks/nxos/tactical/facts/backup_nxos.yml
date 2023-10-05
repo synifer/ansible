@@ -1,0 +1,21 @@
+---
+- 
+  name: Backup Configs
+  hosts: switches
+  gather_facts: yes
+
+
+  tasks:
+    
+    - name: Show running configuration
+      nxos_command:
+        commands: "{{ config }}"
+
+      register: config    
+    - set_fact: time="{{lookup('pipe','date \"+%Y-%m-%d-%H-%M\"')}}"
+
+    - name: Save running configuration
+      copy:
+        content: "{{ config.stdout[0] }}"
+        dest: ~/ansible/documentation/nxos/backup/{{ inventory_hostname }}_run_cfg_{{ time }}.cfg
+

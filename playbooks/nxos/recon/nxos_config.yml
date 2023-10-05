@@ -1,0 +1,146 @@
+---
+
+- name: Run cfg commands on nxos
+  hosts: ipn4
+
+  tasks:
+     
+    - name: Config OSPF from src jinja
+      cisco.nxos.nxos_config:
+        src: ~/ansible/templates/configurations/nxos/IPN4_intf_template.txt
+
+
+#     - name: Config Router from src txt
+#       ios_config:
+#         src: ~/ansible/ios/config/templates/ntp.txt
+#         save_when: modified
+#     
+#     - name: Create a new user
+#       cisco.ios.ios_user:
+#         name: n9kway
+#         privilege: 15
+#         configured_password: cisco
+#         state: present
+
+#      - name: Configure ACL
+#        ios_config:
+#          before: 
+#            - no ip access-list extended IN_TO_OUT
+#          parents:
+#            - ip access-list extended IN_TO_OUT
+#          lines:
+#            - permit tcp 10.0.1.0 0.0.0.255 any eq www
+#            - permit tcp 10.0.1.0 0.0.0.255 any eq 22
+#            - permit icmp any any
+#          replace: block
+#          match: exact
+#          save_when: modified
+#           
+#      - name: Apply ACL to interface
+#        ios_config:
+#          before: 
+#            - interface GigabitEthernet2
+#            - no ip access-group IN_TO_OUT in
+#          parents:
+#            - interface GigabitEthernet2
+#          lines:
+#            - ip access-group IN_TO_OUT in
+
+#     - name: Config interface GigabitEthernet2
+#       ios_config:
+#         before:
+#           - interface GigabitEthernet2
+#           - no ip address
+#         parents:
+#           - interface GigabitEthernet2
+#         lines:
+#           - "ip address 10.1.2.{{item}} 255.255.255.0"
+#           #- ip mtu 1500
+#           - description Configured by Ansible
+#         after:
+#           - no shutdown
+#         defaults: yes 
+#       with_items:
+#         - 1
+#         - 2
+#         - 3
+#         - 4
+#       register: cfg
+
+        
+#     - name: Config interface GigabitEthernet4
+#       ios_config:
+#         parents:
+#           - interface GigabitEthernet4
+#         lines:
+#           - ip address 10.1.4.1 255.255.255.0
+#           - ip mtu 1500
+#           - description Configured by Ansible
+#         after:
+#           - no shutdown
+#         defaults: yes 
+#       register: cfg
+# 
+#     - name: Config interface Loopback
+#       ios_config:
+#         parents:
+#           - interface Loopback123
+#         commands:
+#           - ip address 123.123.123.123 255.255.255.255
+#           - description Configured by Ansible 
+#       register: cfg
+# 
+#     - name: Config password encryption
+#       ios_config:
+#         lines:
+#           - service password-encryption
+#       register: cfg
+# 
+#     - name: Config username
+#       ios_config:
+#         lines:
+#           - username n9kway privilege 15 password 7 cisco
+#       register: cfg
+# 
+# 
+#     - name: Config QoS policy for shape traffic
+#       ios_config:
+#         parents:
+#           - policy-map OUT_QOS
+#           - class class-default
+#         lines: shape average 1000000000 100000000
+#       register: cfg
+# 
+# # Task with item
+# 
+#     - name: Configure interface MTU
+#       ios_config:
+#         parents: 
+#           - "interface GigabitEthernet {{item}}"
+#         lines: 
+#           - ip mtu 1500
+#       with_items:
+#         - 1
+#         - 2
+#         - 4
+# 
+#     - name: Security configuration
+#       ios_config:
+#         lines:
+#           - no ip http server
+#           - no ip http secure-server
+#           - no ip domain lookup
+#       register: cfg
+#     - name: Config line vty
+#       ios_config:
+#         parents: 
+#           - line vty 0 4 
+#         commands:
+#           - logging synchronous
+#           - exec-timeout 60 0
+#           - transport input ssh
+#       register: cfg
+     
+#    - name: Show config updates
+#      debug: var=cfg.updates
+#      when: cfg.changed

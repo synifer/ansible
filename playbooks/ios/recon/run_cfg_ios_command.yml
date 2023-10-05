@@ -1,0 +1,20 @@
+---
+
+- name: Run show commands on routers
+  hosts: routers
+
+  tasks:
+
+    - name: run show commands
+      ios_command:
+        commands:
+          - show running-config
+      register: show_result
+
+    - name: Debug registered var
+      debug: var=show_result
+      #debug: var=show_result.stdout_lines[1]
+    - name: Save configuration
+      copy:
+        content: " {{ show_result.stdout[0] }}"
+        dest: ~/ansible/documentation/ios/backup/{{ inventory_hostname }}_running_config.cfg
